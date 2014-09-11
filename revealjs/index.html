@@ -169,9 +169,66 @@
 	  </div>
 	</section>
 
+	<section data-background-transition="slide">
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <ul>
+	      <li class="fragment">El tamaño de bloque del sistema de archivos es de 4K</li>
+	      <li class="fragment">Experimentos:</li>
+	      <ul>
+		<li class="fragment">Buscar resto de ficheros sobreescritos</li>
+		<li class="fragment">Buscar diferencias al copiar un byte</li>
+		<li class="fragment">Cuánto se separan dos archivos</li>
+		<ul>
+		  <li class="fragment">Separación de 4096 bytes</li>
+		</ul>
+	      </ul>
+	  </section>
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <img width="850" src="fig/nombreCCBBtamVacio.png">
+	    <p>Tabla de nombres con la referencias a los archivos</p>
+	  </section>
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <img width="850" src="fig/datosCCtamVacio.png">
+	    <p>Dato CC en la posición 7692288</p>
+	  </section>
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <img width="850" src="fig/datosBBtamVacio.png">
+	    <p>Dato BB en la posición 7696384</p>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <section>
+	    <h2>Tabla de nombres</h2>
+	    <ul>
+	      <li class="fragment">Se guarda el registro de los ficheros</li>
+	      <li class="fragment">Cada fichero ocupa en memoria 4K</li>
+	      <li class="fragment">Tras crear 32.767 el dispositivo se llenó</li>
+	      <ul>
+		<li class="fragment">La tabla de nombres empieza en el byte 7831552</li>
+		<li class="fragment">Cada tabla ocupa 4096 bytes</li>
+		<li class="fragment">El tamaño reservado para datos por "página" es de 256K</li>
+		<li class="fragment">Solo había ocupados 130M</li>		
+		<ul>
+		  <li class="fragment">Suponemos que se llenó la tabla de nombres</li>
+		</ul>
+	      </ul>
+	      <li class="fragment">Mejoramos el script y hasta llegar a crear 65.535 ficheros</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h2>Tabla de nombres</h2>
+	    <img width="850" src="fig/tablanombres5.png">
+	    <p>Tabla de nombres llena con 65.535 archivos</p>
+	  </section>
+	</section>
+
 	<section>
 	  <h1>¡Muchas gracias!</h1>
-	  <h3>César Martín Cristóbal</h3>
 	</section>
 
       </div>
