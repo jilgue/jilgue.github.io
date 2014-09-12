@@ -29,7 +29,7 @@
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-	<section>
+	<section data-background="#555A5F">
 	  <h1>Persistencia e integridad de datos en memorias Flash</h1>
 
 	  <h3>Ingeniería Técnica  De Telecomunicación, Sistemas De Telecomunicación</h3>
@@ -77,14 +77,14 @@
 	  <h2>Objetivos</h2>
 	    <ul>
 	      <li class="fragment">Determinar el tamaño de sector en hardware y software</li>
-	      <li class="fragment">Determinar como funciona la tabla de nombres</li>
+	      <li class="fragment">Determinar cómo funciona la tabla de nombres</li>
 	      <li class="fragment">¿El controlador mueve datos entre bloques para alargar la vida de los mismos?</li>
 	      <ul>
 		<li class="fragment">¿Un borrado implica cambios ``físicos''?</li>
 		<li class="fragment">¿El montar y desmontar un dispositivo implica movimiento de datos?</li>
 	      </ul>
 	      <li class="fragment">Determinar la vida útil (ciclos de vida) de un sector</li>
-	      <li class="fragment">Ver que información queda después en un sector roto</li>
+	      <li class="fragment">Ver qué información queda después en un sector roto</li>
 	    </ul>
 	</section>
 
@@ -124,7 +124,7 @@
 	      </ul>
 	      <li class="fragment">Bash:</li>
 	      <ul>
-		<li class="fragment">Interprete de órdenes</li>
+		<li class="fragment">Intérprete de órdenes</li>
 	      </ul>
 	      <li class="fragment">Shell:</li>
 	      <ul>
@@ -182,6 +182,7 @@
 		<ul>
 		  <li class="fragment">Separación de 4096 bytes</li>
 		</ul>
+		<li class="fragment" style="font-weight: bold;">Persistencia de datos</li>
 	      </ul>
 	  </section>
 	  <section>
@@ -227,7 +228,94 @@
 	  </section>
 	</section>
 
-	<section>
+	<section data-background-transition="slide">
+	  <section>
+	    <h2>Movimiento de datos entre sectores</h2>
+	    <ul>
+	      <li class="fragment">El controlador puede reordenar los datos</li>
+	      <ul>
+		<li class="fragment">Se conoce como wear levelling</li>
+	      </ul>
+	      <li class="fragment">El montado y desmontado implica movimiento de datos</li>
+	      <ul>
+		<li class="fragment">md5sum</li>
+	      </ul>
+	      <li class="fragment">Comparar las imágenes de antes y después</li>
+	      <ul>
+		<li class="fragment">Tiene una limitación</li>
+		<li class="fragment">Con bless no era viable</li>
+		<li class="fragment">meld no conseguía calcular las diferencias</li>
+		<li class="fragment">diff -y calcula diferencias pero incorrectamente</li>
+		<li class="fragment">Desarrollamos un programa en C que compara un binario bit a bit</li>
+	      </ul>
+	    </ul>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <section>
+	    <h2>Vida útil</h2>
+	    <ul>
+	      <li class="fragment">Pruebas con el script flash_b2.sh</li>
+	      <li class="fragment">Las memorias tienen bloques reservados</li>
+	      <li class="fragment">Pruebas más largas:</li>
+	      <ul>
+		<li class="fragment">50.356.021 ciclos de escritura/borrado</li>
+		<li class="fragment">Errores de entrada/salida y dejase de estar accesible</li>
+	      </ul>
+	    </ul>
+	    <img width="850" class="fragment" src="fig/errorlectura.png">
+	    <ul style="float:left">
+	      <li class="fragment">Mejoramos el script</li>
+	      <ul>
+		<li class="fragment">mount - umount</li>
+	      </ul>
+	    </ul>
+	  </section>
+	  <section>
+	    <h2>Vida útil</h2>
+	    <img width="850" src="fig/flash1.png">
+	    <p>Estado inicial de la prueba</p>
+	  </section>
+
+	  <section data-background="#555A6F">
+	    <h2>Vida útil</h2>
+	    <img width="512" src="fig/flash2.png">
+	  </section>
+	</section>
+
+	<section data-background-transition="slide">
+	  <section>
+	    <h2>Conclusiones</h2>
+	    <ul>
+	      <li class="fragment">El tamaño de bloque de memoria que impone el sistema de ficheros se mantiene a nivel físico</li>
+	      <li class="fragment">El montado y desmontado del dispositivo no genera cambios</li>
+	      <li class="fragment">Analizar las diferencias entre imágenes no es una tarea tribial</li>
+	      <li class="fragment">Son más frágiles los componentes que acompañan a la memoria que la propia memoria</li>
+	      <li class="fragment">Es necesario encontrar un procedimiento más eficientes para "flashear" memorias </li>
+	    </ul>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <section>
+	    <h2>Líneas futuras</h2>
+	    <ul>
+	      <li class="fragment">Mejorar el script para determinar la vida útil</li>
+	      <li class="fragment">El moviento de datos entre sectores de forma más eficaz</li>
+	      <ul>
+		<li class="fragment">Comparar imágenes binarias de gran tamaño</li>
+	      </ul>
+	      <li class="fragment">La recuperación de datos</li>
+	      <ul>
+		<li class="fragment">Prototipo con una FPGA y un lector de chips</li>
+	      </ul>
+	      <li class="fragment">Diseñar un grabador con una FPGA</li>
+	    </ul>
+	  </section>
+	</section>
+
+	<section> 
 	  <h1>¡Muchas gracias!</h1>
 	</section>
 
