@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://jilgue.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://jilgue.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="http://jilgue.github.io//" rel="alternate" type="text/html" /><updated>2017-01-30T18:33:54+01:00</updated><id>http://jilgue.github.io///</id><title type="html">Callepuzzle Dev</title><entry><title type="html">Welcome to Jekyll!</title><link href="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-01-28T10:03:15+01:00</published><updated>2017-01-28T10:03:15+01:00</updated><id>http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll</id><content type="html" xml:base="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://jilgue.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://jilgue.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="http://jilgue.github.io//" rel="alternate" type="text/html" /><updated>2017-01-30T19:44:05+01:00</updated><id>http://jilgue.github.io///</id><title type="html">Callepuzzle Dev</title><entry><title type="html">Install Archlinux in Slimbook</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-in-slimbook.html" rel="alternate" type="text/html" title="Install Archlinux in Slimbook" /><published>2017-01-30T10:03:15+01:00</published><updated>2017-01-30T10:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-in-slimbook</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-in-slimbook.html">&lt;p&gt;First steps:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# loadkeys es&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl start sshd&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# passwd&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# timedatectl set-ntp true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Partition the disks:
+Create one partition boot and and another for the rest.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# fdisk /dev/sda&lt;/span&gt;
+
+Disposit.  Inicio Comienzo     Final  Sectores Tamaño Id Tipo
+/dev/sda1             2048    821247    819200   400M 83 Linux
+/dev/sda2           821248 234441647 233620400 111,4G 83 Linux&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Encrypt the disc:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# cryptsetup luksFormat /dev/sda2&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# cryptsetup open /dev/sda2 cryptolvm&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Create root and swap volumes:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vgcreate Vol /dev/mapper/cryptolvm&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# lvcreate -L 8G Vol -n swap&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# lvcreate -l 100%FREE Vol -n root&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Format the partitions:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# mkfs.ext4 /dev/mapper/Vol-root&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# mkswap /dev/mapper/Vol-swap&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# mkfs.ext2 /dev/sda1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Mount the file systems:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# mount /dev/mapper/Vol-root /mnt&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# swapon /dev/mapper/Vol-swap&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# mkdir /mnt/boot&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# mount /dev/sda1 /mnt/boot&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Install the base packages:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacstrap /mnt base base-devel&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Generate fstab:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Change root into the new system:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# arch-chroot /mnt&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Configurate time zone:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# ls -l /etc/localtime&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# rm /etc/localtime&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# hwclock --systohc&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S vim&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Configurate locale:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vim /etc/locale.gen&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# locale-gen&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# vim /etc/locale.conf&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;es_ES.utf8
+&lt;span class=&quot;c&quot;&gt;# vim /etc/vconsole.conf&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;KEYMAP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;es&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Configurate hostname:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vim /etc/hostname&lt;/span&gt;
+slimbook&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Initramfs:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vim /etc/mkinitcpio.conf&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;HOOKS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard fsck&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# mkinitcpio -p linux&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# passwd&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Boot loader&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S grub&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# grub-install --target=i386-pc /dev/sda&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# vim /etc/default/grub&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;GRUB_CMDLINE_LINUX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cryptdevice=/dev/sda2:lvm root=/dev/mapper/Vol-root elevator=noop&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;quiet resume=/dev/mapper/Vol-swap&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# grub-mkconfig -o /boot/grub/grub.cfg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;reboot&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Add user:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# useradd -m -g users -G wheel -s /bin/bash cesar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Install graphical user interface:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S xf86-video-intel&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# pacman -S xorg&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# pacman -S plasma&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# pacman -S bash-completion&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Note: ifconfig is deprecated, use &lt;em&gt;ip addr&lt;/em&gt;: https://www.archlinux.org/news/deprecation-of-net-tools/&lt;/p&gt;</content><summary type="html">First steps:
+
+# loadkeys es
+# systemctl start sshd
+# passwd
+# timedatectl set-ntp true</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-01-28T10:03:15+01:00</published><updated>2017-01-28T10:03:15+01:00</updated><id>http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll</id><content type="html" xml:base="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
