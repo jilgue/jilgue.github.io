@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://jilgue.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://jilgue.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="http://jilgue.github.io//" rel="alternate" type="text/html" /><updated>2017-01-30T22:09:50+01:00</updated><id>http://jilgue.github.io///</id><title type="html">Callepuzzle Dev</title><entry><title type="html">Install Archlinux on Slimbook</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-on-slimbook.html" rel="alternate" type="text/html" title="Install Archlinux on Slimbook" /><published>2017-01-30T10:03:15+01:00</published><updated>2017-01-30T10:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-on-slimbook</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-on-slimbook.html">&lt;p&gt;First steps:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://jilgue.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://jilgue.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="http://jilgue.github.io//" rel="alternate" type="text/html" /><updated>2017-02-05T12:48:01+01:00</updated><id>http://jilgue.github.io///</id><title type="html">Callepuzzle Dev</title><entry><title type="html">Configure SSD on Archlinux for Slimbook</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html" rel="alternate" type="text/html" title="Configure SSD on Archlinux for Slimbook" /><published>2017-02-05T10:03:15+01:00</published><updated>2017-02-05T10:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html">&lt;h3 id=&quot;mount-tmp-dir-in-ram-memory&quot;&gt;Mount tmp dir in RAM memory:&lt;/h3&gt;
+
+&lt;p&gt;Using the ram memory as tmp dir we avoid unnecessary writings in disc, for this we have to edit fstab:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vim /etc/fstab&lt;/span&gt;
+tmpfs    /tmp    tmpfs    noatime,nodiratime,nodev,nosuid,mode&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1777,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2G,defaults    0    0
+tmpfs    /var/tmp    tmpfs    noatime,nodiratime,nodev,nosuid,mode&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1777,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2G,defaults    0    0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;reduce-the-use-of-swap-memory&quot;&gt;Reduce the use of swap memory:&lt;/h3&gt;
+&lt;p&gt;The swap partition can be used even if free memory is left. Editing sysctl we can reduce his use.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vim /etc/sysctl.d/99-swap.conf&lt;/span&gt;
+vm.swappiness&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+vm.vfs_cache_pressure&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;50
+vm.dirty_writeback_centisecs&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1500&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;trim&quot;&gt;TRIM&lt;/h3&gt;
+&lt;p&gt;Most SSDs support the ATA_TRIM command for sustained long-term performance and wear-leveling.&lt;/p&gt;
+
+&lt;p&gt;To verify TRIM support, run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# lsblk -D&lt;/span&gt;
+NAME           DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+sda                   0      512B       2G         0
+├─sda1                0      512B       2G         0
+└─sda2                0      512B       2G         0
+  └─lvm               0      512B       2G         0
+    ├─Vol-swap        0      512B       2G         0
+    └─Vol-root        0      512B       2G         0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And check the values of DISC-GRAN and DISC-MAX columns. Non-zero values indicate TRIM support.&lt;/p&gt;
+
+&lt;p&gt;Or install hdparm package and run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S hdparm&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# hdparm -I /dev/sda | grep TRIM&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;	Data Set Management TRIM supported &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;limit 1 block&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The fstrim command analyzes the disc, and it controls and regroups the memory blocks, making the disk management faster.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /sbin/fstrim --all&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;fstrim can be periodic execute thanks fstrim.service and fstrim.timer systemd unit files, provided in util-linux package.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# systemctl start fstrim.timer &amp;amp;&amp;amp; systemctl enable fstrim.timer&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl list-timers --all&lt;/span&gt;
+NEXT                         LEFT     LAST                         PASSED       UNIT                         ACTIVATES
+Mon 2017-02-06 00:00:00 CET  11h left Mon 2017-01-30 17:53:25 CET  5 days ago   fstrim.timer                 fstrim.service&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;desactivate-the-io-algorithm&quot;&gt;Desactivate the I/O algorithm&lt;/h3&gt;
+&lt;p&gt;Since they are not rotating discs, it is not necessary to calculate the algorithm. To deactivate it:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vim /etc/default/grub &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;GRUB_CMDLINE_LINUX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cryptdevice=/dev/sda2:lvm root=/dev/mapper/Vol-root elevator=noop&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# grub-mkconfig -o /boot/grub/grub.cfg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><summary type="html">Mount tmp dir in RAM memory:</summary></entry><entry><title type="html">Install Archlinux on Slimbook</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-on-slimbook.html" rel="alternate" type="text/html" title="Install Archlinux on Slimbook" /><published>2017-01-30T10:03:15+01:00</published><updated>2017-01-30T10:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-on-slimbook</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/01/30/archlinux-on-slimbook.html">&lt;p&gt;First steps:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# loadkeys es&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# systemctl start sshd&lt;/span&gt;
@@ -109,16 +163,4 @@ slimbook&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 # loadkeys es
 # systemctl start sshd
 # passwd
-# timedatectl set-ntp true</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-01-28T10:03:15+01:00</published><updated>2017-01-28T10:03:15+01:00</updated><id>http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll</id><content type="html" xml:base="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+# timedatectl set-ntp true</summary></entry></feed>

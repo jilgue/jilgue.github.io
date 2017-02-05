@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Welcome to Jekyll!</title>
-  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+  <title>Configure SSD on Archlinux for Slimbook</title>
+  <meta name="description" content="Mount tmp dir in RAM memory:">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://jilgue.github.io//jekyll/update/2017/01/28/welcome-to-jekyll.html">
+  <link rel="canonical" href="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html">
   <link rel="alternate" type="application/rss+xml" title="Callepuzzle Dev" href="/feed.xml">
   
   
@@ -65,24 +65,66 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Welcome to Jekyll!</h1>
-    <p class="post-meta"><time datetime="2017-01-28T10:03:15+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
+    <h1 class="post-title" itemprop="name headline">Configure SSD on Archlinux for Slimbook</h1>
+    <p class="post-meta"><time datetime="2017-02-05T10:03:15+01:00" itemprop="datePublished">Feb 5, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <h3 id="mount-tmp-dir-in-ram-memory">Mount tmp dir in RAM memory:</h3>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>Using the ram memory as tmp dir we avoid unnecessary writings in disc, for this we have to edit fstab:</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># vim /etc/fstab</span>
+tmpfs    /tmp    tmpfs    noatime,nodiratime,nodev,nosuid,mode<span class="o">=</span>1777,size<span class="o">=</span>2G,defaults    0    0
+tmpfs    /var/tmp    tmpfs    noatime,nodiratime,nodev,nosuid,mode<span class="o">=</span>1777,size<span class="o">=</span>2G,defaults    0    0</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<h3 id="reduce-the-use-of-swap-memory">Reduce the use of swap memory:</h3>
+<p>The swap partition can be used even if free memory is left. Editing sysctl we can reduce his use.</p>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># vim /etc/sysctl.d/99-swap.conf</span>
+vm.swappiness<span class="o">=</span>1
+vm.vfs_cache_pressure<span class="o">=</span>50
+vm.dirty_writeback_centisecs<span class="o">=</span>1500</code></pre></figure>
+
+<h3 id="trim">TRIM</h3>
+<p>Most SSDs support the ATA_TRIM command for sustained long-term performance and wear-leveling.</p>
+
+<p>To verify TRIM support, run:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># lsblk -D</span>
+NAME           DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+sda                   0      512B       2G         0
+├─sda1                0      512B       2G         0
+└─sda2                0      512B       2G         0
+  └─lvm               0      512B       2G         0
+    ├─Vol-swap        0      512B       2G         0
+    └─Vol-root        0      512B       2G         0</code></pre></figure>
+
+<p>And check the values of DISC-GRAN and DISC-MAX columns. Non-zero values indicate TRIM support.</p>
+
+<p>Or install hdparm package and run:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># pacman -S hdparm</span>
+<span class="c"># hdparm -I /dev/sda | grep TRIM</span>
+	<span class="k">*</span>	Data Set Management TRIM supported <span class="o">(</span>limit 1 block<span class="o">)</span></code></pre></figure>
+
+<p>The fstrim command analyzes the disc, and it controls and regroups the memory blocks, making the disk management faster.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># /sbin/fstrim --all</span></code></pre></figure>
+
+<p>fstrim can be periodic execute thanks fstrim.service and fstrim.timer systemd unit files, provided in util-linux package.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># systemctl start fstrim.timer &amp;&amp; systemctl enable fstrim.timer</span>
+<span class="c"># systemctl list-timers --all</span>
+NEXT                         LEFT     LAST                         PASSED       UNIT                         ACTIVATES
+Mon 2017-02-06 00:00:00 CET  11h left Mon 2017-01-30 17:53:25 CET  5 days ago   fstrim.timer                 fstrim.service</code></pre></figure>
+
+<h3 id="desactivate-the-io-algorithm">Desactivate the I/O algorithm</h3>
+<p>Since they are not rotating discs, it is not necessary to calculate the algorithm. To deactivate it:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># vim /etc/default/grub </span>
+<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">"cryptdevice=/dev/sda2:lvm root=/dev/mapper/Vol-root elevator=noop"</span>
+<span class="c"># grub-mkconfig -o /boot/grub/grub.cfg</span></code></pre></figure>
 
 
   </div>
