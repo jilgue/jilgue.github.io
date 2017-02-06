@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://jilgue.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://jilgue.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="http://jilgue.github.io//" rel="alternate" type="text/html" /><updated>2017-02-05T12:48:01+01:00</updated><id>http://jilgue.github.io///</id><title type="html">Callepuzzle Dev</title><entry><title type="html">Configure SSD on Archlinux for Slimbook</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html" rel="alternate" type="text/html" title="Configure SSD on Archlinux for Slimbook" /><published>2017-02-05T10:03:15+01:00</published><updated>2017-02-05T10:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html">&lt;h3 id=&quot;mount-tmp-dir-in-ram-memory&quot;&gt;Mount tmp dir in RAM memory:&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://jilgue.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://jilgue.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="http://jilgue.github.io//" rel="alternate" type="text/html" /><updated>2017-02-06T19:07:15+01:00</updated><id>http://jilgue.github.io///</id><title type="html">Callepuzzle Dev</title><entry><title type="html">Maximise battery life on Archlinux</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/02/06/archlinux-battery-life.html" rel="alternate" type="text/html" title="Maximise battery life on Archlinux" /><published>2017-02-06T18:03:15+01:00</published><updated>2017-02-06T18:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/02/06/archlinux-battery-life</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/02/06/archlinux-battery-life.html">&lt;h3 id=&quot;acpid&quot;&gt;Acpid:&lt;/h3&gt;
+
+&lt;p&gt;acpid2 is a flexible and extensible daemon for delivering ACPI events.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S acpid&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl enable acpid.service &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl start acpid.service &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;tlp&quot;&gt;TLP:&lt;/h3&gt;
+
+&lt;p&gt;TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S tlp&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# pacman -S ethtool smartmontools x86_energy_perf_policy&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl enable tlp.service tlp-sleep.service&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;microcode&quot;&gt;Microcode:&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S intel-ucode &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# grub-mkconfig -o /boot/grub/grub.cfg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;linux-monitoring-sensors-and-cpu-frequency-scaling&quot;&gt;Linux monitoring sensors and CPU frequency scaling&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S lm_sensors &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# yaourt -S thermald&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl start thermald.service &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# systemctl enable thermald.service&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;powertop&quot;&gt;Powertop&lt;/h3&gt;
+
+&lt;p&gt;If you don’t have enoght with all this, use the powertop optimizer&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pacman -S powertop&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# powertop&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><summary type="html">Acpid:</summary></entry><entry><title type="html">Configure SSD on Archlinux for Slimbook</title><link href="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html" rel="alternate" type="text/html" title="Configure SSD on Archlinux for Slimbook" /><published>2017-02-05T10:03:15+01:00</published><updated>2017-02-05T10:03:15+01:00</updated><id>http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration</id><content type="html" xml:base="http://jilgue.github.io//archlinux/slimbook/2017/02/05/archlinux-ssd-configuration.html">&lt;h3 id=&quot;mount-tmp-dir-in-ram-memory&quot;&gt;Mount tmp dir in RAM memory:&lt;/h3&gt;
 
 &lt;p&gt;Using the ram memory as tmp dir we avoid unnecessary writings in disc, for this we have to edit fstab:&lt;/p&gt;
 
