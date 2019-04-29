@@ -1,0 +1,361 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Install Arch Linux on Slimbook · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="2017-02-05-archlinux-ssd-configuration.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Arch Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="2017-02-06-archlinux-battery-life.html">
+            
+                <a href="2017-02-06-archlinux-battery-life.html">
+            
+                    
+                    Maximise battery life on Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2017-02-05-archlinux-ssd-configuration.html">
+            
+                <a href="2017-02-05-archlinux-ssd-configuration.html">
+            
+                    
+                    Configure SSD on Arch Linux for Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="2017-01-30-archlinux-on-slimbook.html">
+            
+                <a href="2017-01-30-archlinux-on-slimbook.html">
+            
+                    
+                    Install Arch Linux on Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Install Arch Linux on Slimbook</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="install-archlinux-on-slimbook">Install Archlinux on Slimbook&quot;</h1>
+<p>2017-01-30 10:03:15 +0100</p>
+<p>First steps:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># loadkeys es</span>
+<span class="hljs-comment"># systemctl start sshd</span>
+<span class="hljs-comment"># passwd</span>
+<span class="hljs-comment"># timedatectl set-ntp true</span>
+</code></pre>
+<p>Partition the disks:
+Create one partition boot and and another for the rest.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># fdisk /dev/sda</span>
+
+Disposit.  Inicio Comienzo     Final  Sectores Tama&#xF1;o Id Tipo
+/dev/sda1             2048    821247    819200   400M 83 Linux
+/dev/sda2           821248 234441647 233620400 111,4G 83 Linux
+</code></pre>
+<p>Encrypt the disc:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># cryptsetup luksFormat /dev/sda2</span>
+<span class="hljs-comment"># cryptsetup open /dev/sda2 cryptolvm</span>
+</code></pre>
+<p>Create root and swap volumes:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vgcreate Vol /dev/mapper/cryptolvm</span>
+<span class="hljs-comment"># lvcreate -L 8G Vol -n swap</span>
+<span class="hljs-comment"># lvcreate -l 100%FREE Vol -n root</span>
+</code></pre>
+<p>Format the partitions:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># mkfs.ext4 /dev/mapper/Vol-root</span>
+<span class="hljs-comment"># mkswap /dev/mapper/Vol-swap</span>
+<span class="hljs-comment"># mkfs.ext2 /dev/sda1</span>
+</code></pre>
+<p>Mount the file systems:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># mount /dev/mapper/Vol-root /mnt</span>
+<span class="hljs-comment"># swapon /dev/mapper/Vol-swap</span>
+<span class="hljs-comment"># mkdir /mnt/boot</span>
+<span class="hljs-comment"># mount /dev/sda1 /mnt/boot</span>
+</code></pre>
+<p>Install the base packages:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacstrap /mnt base base-devel</span>
+</code></pre>
+<p>Generate fstab:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span>
+</code></pre>
+<p>Change root into the new system:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># arch-chroot /mnt</span>
+</code></pre>
+<p>Configurate time zone:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime</span>
+<span class="hljs-comment"># ls -l /etc/localtime</span>
+<span class="hljs-comment"># rm /etc/localtime</span>
+<span class="hljs-comment"># ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime</span>
+<span class="hljs-comment"># hwclock --systohc</span>
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S vim</span>
+</code></pre>
+<p>Configurate locale:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/locale.gen</span>
+<span class="hljs-comment"># locale-gen</span>
+<span class="hljs-comment"># vim /etc/locale.conf</span>
+LANG=es_ES.utf8
+<span class="hljs-comment"># vim /etc/vconsole.conf</span>
+KEYMAP=es
+</code></pre>
+<p>Configurate hostname:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/hostname</span>
+slimbook
+</code></pre>
+<p>Initramfs:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/mkinitcpio.conf</span>
+HOOKS=<span class="hljs-string">&quot;base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard fsck&quot;</span>
+<span class="hljs-comment"># mkinitcpio -p linux</span>
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-comment"># passwd</span>
+</code></pre>
+<p>Boot loader</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S grub</span>
+<span class="hljs-comment"># grub-install --target=i386-pc /dev/sda</span>
+<span class="hljs-comment"># vim /etc/default/grub</span>
+GRUB_CMDLINE_LINUX=<span class="hljs-string">&quot;cryptdevice=/dev/sda2:lvm root=/dev/mapper/Vol-root elevator=noop&quot;</span>
+GRUB_CMDLINE_LINUX_DEFAULT=<span class="hljs-string">&quot;quiet resume=/dev/mapper/Vol-swap&quot;</span>
+<span class="hljs-comment"># grub-mkconfig -o /boot/grub/grub.cfg</span>
+</code></pre>
+<p><em>reboot</em></p>
+<p>Add user:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># useradd -m -g users -G wheel -s /bin/bash cesar</span>
+</code></pre>
+<p>Install graphical user interface:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S xf86-video-intel</span>
+<span class="hljs-comment"># pacman -S xorg</span>
+<span class="hljs-comment"># pacman -S plasma</span>
+<span class="hljs-comment"># pacman -S bash-completion</span>
+</code></pre>
+<p>Note: ifconfig is deprecated, use <em>ip addr</em>: <a href="https://www.archlinux.org/news/deprecation-of-net-tools/" target="_blank">https://www.archlinux.org/news/deprecation-of-net-tools/</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2017-02-05-archlinux-ssd-configuration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Configure SSD on Arch Linux for Slimbook">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Install Arch Linux on Slimbook","level":"2.3","depth":1,"previous":{"title":"Configure SSD on Arch Linux for Slimbook","level":"2.2","depth":1,"path":"archlinux/2017-02-05-archlinux-ssd-configuration.md","ref":"archlinux/2017-02-05-archlinux-ssd-configuration.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"archlinux/2017-01-30-archlinux-on-slimbook.md","mtime":"2019-04-27T22:03:34.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-29T12:25:50.184Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

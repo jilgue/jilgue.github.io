@@ -1,0 +1,323 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Configure SSD on Arch Linux for Slimbook · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2017-01-30-archlinux-on-slimbook.html" />
+    
+    
+    <link rel="prev" href="2017-02-06-archlinux-battery-life.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Arch Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="2017-02-06-archlinux-battery-life.html">
+            
+                <a href="2017-02-06-archlinux-battery-life.html">
+            
+                    
+                    Maximise battery life on Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="2017-02-05-archlinux-ssd-configuration.html">
+            
+                <a href="2017-02-05-archlinux-ssd-configuration.html">
+            
+                    
+                    Configure SSD on Arch Linux for Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="2017-01-30-archlinux-on-slimbook.html">
+            
+                <a href="2017-01-30-archlinux-on-slimbook.html">
+            
+                    
+                    Install Arch Linux on Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Configure SSD on Arch Linux for Slimbook</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="configure-ssd-on-archlinux-for-slimbook">Configure SSD on Archlinux for Slimbook&quot;</h1>
+<p>2017-02-05 10:03:15 +0100</p>
+<h3 id="mount-tmp-dir-in-ram-memory">Mount tmp dir in RAM memory:</h3>
+<p>Using the ram memory as tmp dir we avoid unnecessary writings in disc, for this we have to edit fstab:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/fstab</span>
+tmpfs    /tmp    tmpfs    noatime,nodiratime,nodev,nosuid,mode=1777,size=2G,defaults    0    0
+tmpfs    /var/tmp    tmpfs    noatime,nodiratime,nodev,nosuid,mode=1777,size=2G,defaults    0    0
+</code></pre>
+<h3 id="reduce-the-use-of-swap-memory">Reduce the use of swap memory:</h3>
+<p>The swap partition can be used even if free memory is left. Editing sysctl we can reduce his use.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/sysctl.d/99-swap.conf</span>
+vm.swappiness=1
+vm.vfs_cache_pressure=50
+vm.dirty_writeback_centisecs=1500
+</code></pre>
+<h3 id="trim">TRIM</h3>
+<p>Most SSDs support the ATA_TRIM command for sustained long-term performance and wear-leveling.</p>
+<p>To verify TRIM support, run:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># lsblk -D</span>
+NAME           DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+sda                   0      512B       2G         0
+&#x251C;&#x2500;sda1                0      512B       2G         0
+&#x2514;&#x2500;sda2                0      512B       2G         0
+  &#x2514;&#x2500;lvm               0      512B       2G         0
+    &#x251C;&#x2500;Vol-swap        0      512B       2G         0
+    &#x2514;&#x2500;Vol-root        0      512B       2G         0
+</code></pre>
+<p>And check the values of DISC-GRAN and DISC-MAX columns. Non-zero values indicate TRIM support.</p>
+<p>Or install hdparm package and run:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S hdparm</span>
+<span class="hljs-comment"># hdparm -I /dev/sda | grep TRIM</span>
+    *    Data Set Management TRIM supported (<span class="hljs-built_in">limit</span> 1 block)
+</code></pre>
+<p>The fstrim command analyzes the disc, and it controls and regroups the memory blocks, making the disk management faster.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># /sbin/fstrim --all</span>
+</code></pre>
+<p>fstrim can be periodic execute thanks fstrim.service and fstrim.timer systemd unit files, provided in util-linux package.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># systemctl start fstrim.timer &amp;&amp; systemctl enable fstrim.timer</span>
+<span class="hljs-comment"># systemctl list-timers --all</span>
+NEXT                         LEFT     LAST                         PASSED       UNIT                         ACTIVATES
+Mon 2017-02-06 00:00:00 CET  11h left Mon 2017-01-30 17:53:25 CET  5 days ago   fstrim.timer                 fstrim.service
+</code></pre>
+<h3 id="desactivate-the-io-algorithm">Desactivate the I/O algorithm</h3>
+<p>Since they are not rotating discs, it is not necessary to calculate the algorithm. To deactivate it:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/default/grub </span>
+GRUB_CMDLINE_LINUX=<span class="hljs-string">&quot;cryptdevice=/dev/sda2:lvm root=/dev/mapper/Vol-root elevator=noop&quot;</span>
+<span class="hljs-comment"># grub-mkconfig -o /boot/grub/grub.cfg</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2017-02-06-archlinux-battery-life.html" class="navigation navigation-prev " aria-label="Previous page: Maximise battery life on Arch Linux">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2017-01-30-archlinux-on-slimbook.html" class="navigation navigation-next " aria-label="Next page: Install Arch Linux on Slimbook">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Configure SSD on Arch Linux for Slimbook","level":"2.2","depth":1,"next":{"title":"Install Arch Linux on Slimbook","level":"2.3","depth":1,"path":"archlinux/2017-01-30-archlinux-on-slimbook.md","ref":"archlinux/2017-01-30-archlinux-on-slimbook.md","articles":[]},"previous":{"title":"Maximise battery life on Arch Linux","level":"2.1","depth":1,"path":"archlinux/2017-02-06-archlinux-battery-life.md","ref":"archlinux/2017-02-06-archlinux-battery-life.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"archlinux/2017-02-05-archlinux-ssd-configuration.md","mtime":"2019-04-27T22:03:47.130Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-29T12:25:50.184Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
