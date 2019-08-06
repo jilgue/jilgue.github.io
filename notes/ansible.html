@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Maximise battery life on Arch Linux · GitBook</title>
+        <title>Ansible · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2017-02-05-archlinux-ssd-configuration.html" />
+    <link rel="next" href="cheat-sheet/git.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="gitbook.html" />
     
 
     </head>
@@ -116,9 +116,9 @@
         
         
     
-        <li class="chapter active" data-level="3.1" data-path="2017-02-06-archlinux-battery-life.html">
+        <li class="chapter " data-level="3.1" data-path="../archlinux/2017-02-06-archlinux-battery-life.html">
             
-                <a href="2017-02-06-archlinux-battery-life.html">
+                <a href="../archlinux/2017-02-06-archlinux-battery-life.html">
             
                     
                     Maximise battery life on Arch Linux
@@ -129,9 +129,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="2017-02-05-archlinux-ssd-configuration.html">
+        <li class="chapter " data-level="3.2" data-path="../archlinux/2017-02-05-archlinux-ssd-configuration.html">
             
-                <a href="2017-02-05-archlinux-ssd-configuration.html">
+                <a href="../archlinux/2017-02-05-archlinux-ssd-configuration.html">
             
                     
                     Configure SSD on Arch Linux for Slimbook
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="2017-01-30-archlinux-on-slimbook.html">
+        <li class="chapter " data-level="3.3" data-path="../archlinux/2017-01-30-archlinux-on-slimbook.html">
             
-                <a href="2017-01-30-archlinux-on-slimbook.html">
+                <a href="../archlinux/2017-01-30-archlinux-on-slimbook.html">
             
                     
                     Install Arch Linux on Slimbook
@@ -162,9 +162,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../notes/gitbook.html">
+        <li class="chapter " data-level="4.1" data-path="gitbook.html">
             
-                <a href="../notes/gitbook.html">
+                <a href="gitbook.html">
             
                     
                     Cómo generar jilgue.github.io
@@ -175,9 +175,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../notes/ansible.html">
+        <li class="chapter active" data-level="4.2" data-path="ansible.html">
             
-                <a href="../notes/ansible.html">
+                <a href="ansible.html">
             
                     
                     Ansible
@@ -195,9 +195,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../notes/cheat-sheet/git.html">
+        <li class="chapter " data-level="5.1" data-path="cheat-sheet/git.html">
             
-                <a href="../notes/cheat-sheet/git.html">
+                <a href="cheat-sheet/git.html">
             
                     
                     GIT
@@ -238,7 +238,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Maximise battery life on Arch Linux</a>
+        <a href=".." >Ansible</a>
     </h1>
 </div>
 
@@ -253,36 +253,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="maximise-battery-life-on-archlinux">Maximise battery life on Archlinux</h1>
-<p>2017-02-06 18:03:15 +0100</p>
-<h3 id="acpid">Acpid:</h3>
-<p>acpid2 is a flexible and extensible daemon for delivering ACPI events.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S acpid</span>
-<span class="hljs-comment"># systemctl enable acpid.service </span>
-<span class="hljs-comment"># systemctl start acpid.service</span>
+                                <h1 id="ansible">Ansible</h1>
+<pre><code>$ pip2 install git+https://github.com/ansible/ansible.git@stable-2.3
+</code></pre><h2 id="molecule">Molecule</h2>
+<pre><code>$ virtualenv -p/usr/bin/python2 --no-site-packages .venv
+$ source .venv/bin/activate
+$ pip install molecule ansible docker-py
+$ molecule init role -r new-role -d docker
+$ molecule init scenario -r foo -d docker
+$ molecule test
 </code></pre>
-<h3 id="tlp">TLP:</h3>
-<p>TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S tlp</span>
-<span class="hljs-comment"># pacman -S ethtool smartmontools x86_energy_perf_policy</span>
-<span class="hljs-comment"># systemctl enable tlp.service tlp-sleep.service</span>
-</code></pre>
-<h3 id="microcode">Microcode:</h3>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S intel-ucode </span>
-<span class="hljs-comment"># grub-mkconfig -o /boot/grub/grub.cfg</span>
-</code></pre>
-<h3 id="linux-monitoring-sensors-and-cpu-frequency-scaling">Linux monitoring sensors and CPU frequency scaling</h3>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S lm_sensors </span>
-<span class="hljs-comment"># yaourt -S thermald</span>
-<span class="hljs-comment"># systemctl start thermald.service </span>
-<span class="hljs-comment"># systemctl enable thermald.service</span>
-</code></pre>
-<h3 id="powertop">Powertop</h3>
-<p>If you don&apos;t have enoght with all this, use the powertop optimizer</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S powertop</span>
-<span class="hljs-comment"># powertop</span>
-</code></pre>
-
                                 
                                 </section>
                             
@@ -309,12 +289,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="gitbook.html" class="navigation navigation-prev " aria-label="Previous page: Cómo generar jilgue.github.io">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="2017-02-05-archlinux-ssd-configuration.html" class="navigation navigation-next " aria-label="Next page: Configure SSD on Arch Linux for Slimbook">
+                <a href="cheat-sheet/git.html" class="navigation navigation-next " aria-label="Next page: GIT">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -325,7 +305,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Maximise battery life on Arch Linux","level":"3.1","depth":1,"next":{"title":"Configure SSD on Arch Linux for Slimbook","level":"3.2","depth":1,"path":"archlinux/2017-02-05-archlinux-ssd-configuration.md","ref":"archlinux/2017-02-05-archlinux-ssd-configuration.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"archlinux/2017-02-06-archlinux-battery-life.md","mtime":"2019-08-06T20:51:14.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-06T21:31:26.296Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ansible","level":"4.2","depth":1,"next":{"title":"GIT","level":"5.1","depth":1,"path":"notes/cheat-sheet/git.md","ref":"notes/cheat-sheet/git.md","articles":[]},"previous":{"title":"Cómo generar jilgue.github.io","level":"4.1","depth":1,"path":"notes/gitbook.md","ref":"notes/gitbook.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"notes/ansible.md","mtime":"2019-08-06T21:30:04.477Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-06T21:31:26.296Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

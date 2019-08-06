@@ -1,0 +1,438 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GIT · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../ansible.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Arch Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../archlinux/2017-02-06-archlinux-battery-life.html">
+            
+                <a href="../../archlinux/2017-02-06-archlinux-battery-life.html">
+            
+                    
+                    Maximise battery life on Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../archlinux/2017-02-05-archlinux-ssd-configuration.html">
+            
+                <a href="../../archlinux/2017-02-05-archlinux-ssd-configuration.html">
+            
+                    
+                    Configure SSD on Arch Linux for Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../archlinux/2017-01-30-archlinux-on-slimbook.html">
+            
+                <a href="../../archlinux/2017-01-30-archlinux-on-slimbook.html">
+            
+                    
+                    Install Arch Linux on Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../gitbook.html">
+            
+                <a href="../gitbook.html">
+            
+                    
+                    Cómo generar jilgue.github.io
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../ansible.html">
+            
+                <a href="../ansible.html">
+            
+                    
+                    Ansible
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Cheat Sheet</li>
+        
+        
+    
+        <li class="chapter active" data-level="5.1" data-path="git.html">
+            
+                <a href="git.html">
+            
+                    
+                    GIT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >GIT</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="git-cheat-sheet">Git cheat sheet</h1>
+<ul>
+<li>git co --track origin/branch branch</li>
+<li>git rebase master # ordena la historia de mi rama para que mis cambios siempre est&#xE9;n los primeros</li>
+<li>git commit --amend # permite cambiar el comentario del &#xFA;ltimo commit</li>
+</ul>
+<h2 id="revertir-un-merge">Revertir un merge</h2>
+<ul>
+<li>merge commit -&gt; git revert --mainline 1 commit</li>
+<li><p>no merge commit -&gt; git branch --contais commit -&gt; git revert commit</p>
+</li>
+<li><p>use --no-ff no fast-forward merge</p>
+</li>
+<li>cuando se hace un force pushing todo el mundo tiene que tener su repo limpio para evitar conflictos<ul>
+<li>remove secret.md</li>
+<li>git filter-branch --index-filter &apos;git rm --cached --ignore-unmatch secret.md&apos; HEAD
+ignore-unmatch por si se incluyo en giignore<ul>
+<li>git filter-branch --tree-filter &apos;for i in <code>grep -rl c7fd595bf0cb8dfd1f12468b16cf2b6c</code>;do sed -i &quot;s/c7fd595bf0cb8dfd1f12468b16cf2b6c/xxxxxxxxx/&quot; $i;done&apos; HEAD</li>
+</ul>
+</li>
+<li>git reflog expire --expire=now --all # forget about extended history, and use only the stored commit messages</li>
+<li>git gc --prune=now # run the garbage collector and ensure all noncommitted changes are removed from local memory
+reflog permanently remove</li>
+<li>git push origin --force --all</li>
+<li>updating<ul>
+<li>cloning</li>
+<li>git pull --rebase=preserve allow keep work locally</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="git-stash">git stash</h2>
+<ul>
+<li>git stash<ul>
+<li>git stash --include-untracked</li>
+<li>git stash &quot;mesagge&quot;</li>
+<li>git stash list</li>
+<li>git stash show stash@{0}</li>
+<li>git stash apply stash@{0} # stash persist</li>
+<li>git stash drop stash@{0} # clean stash</li>
+<li>git stash pop</li>
+<li>git stash pop stash@{0}</li>
+</ul>
+</li>
+<li>git log --oneline<ul>
+<li>git log working..origin/broken</li>
+<li>git log -S foo</li>
+<li>git log -G regex</li>
+<li>git log --after &quot;Nov 10 2016&quot;</li>
+<li>git log --before &quot;Nov 10 2016&quot;</li>
+<li>git log --reverse</li>
+<li>git log --merges</li>
+<li>git log --oneline --graph --decorate</li>
+</ul>
+</li>
+<li>git blame file</li>
+<li>git bisect<ul>
+<li>git bisect</li>
+<li>git bisect bad commit</li>
+<li>git bisect good commit</li>
+<li>git bisect bad</li>
+<li>git bisect good</li>
+<li>git bisect reset</li>
+</ul>
+</li>
+<li>git pull origin/master === git fetch --all &amp;&amp; git merge origin/master</li>
+<li>git clean -x # add ignore files</li>
+<li>git ls-files -v # lista todos los archivos y su estado</li>
+<li>git merge -s --strategy -X --strategy-option # algorithm that git use to decide how to perform a merge<ul>
+<li>strategy<ul>
+<li>recursive # default a single branch merge</li>
+<li>octopus # default two o more branch</li>
+<li>ours</li>
+<li>subtree</li>
+</ul>
+</li>
+<li>options<ul>
+<li>ours</li>
+<li>their</li>
+<li>patience</li>
+<li>ignore-all-space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>git push origin :refs/tags/v1.144.14</li>
+<li>git rev-parse 3.0.0</li>
+<li>git describe --tags --abbrev=0</li>
+<li>git cherry -v masterV2</li>
+<li>sacar cambios a otro repo<ul>
+<li>git co -b foundation-lab</li>
+<li>git remote add foundation-lab git@gitlab.bitban.int:frontend/foundation-lab.git</li>
+<li>git fetch --all</li>
+<li>git filter-branch -f --prune-empty --subdirectory-filter sites/default/frontend/ foundation-lab</li>
+<li>git push foundation-lab foundation-lab:master</li>
+</ul>
+</li>
+<li>git log --no-merges mobileRD  --not $(git for-each-ref --format=&quot;%(refname)&quot; refs/heads | grep -Fv refs/heads/mobileRD) te da los commits que solo existen en la rama mobileRD</li>
+<li>git tag 3.7.0 3.7.0 -f -m &quot;Se a&#xF1;ade a BB3HTTPHeaders la opci&#xF3;n de enviar un c&#xF3;digo 204 No Content&quot;</li>
+<li>git filter-branch -f --index-filter &apos;git revert &quot;${GIT_COMMIT}&quot;~1&apos; masterAntesMerge40345..masterPruebas</li>
+<li>git reset --hard --mixed --merge d93808ad3d4ac7b879b55e06ec3dc8deb82dddf0<ul>
+<li>git push origin -f master</li>
+<li>git pull --rebase=preserve</li>
+</ul>
+</li>
+<li>git fetch --prune <remote> +refs/tags/<em>:refs/tags/</em></remote></li>
+<li>git merge servotic --allow-unrelated-histories</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../ansible.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Ansible">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GIT","level":"5.1","depth":1,"previous":{"title":"Ansible","level":"4.2","depth":1,"path":"notes/ansible.md","ref":"notes/ansible.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"notes/cheat-sheet/git.md","mtime":"2019-08-06T21:16:22.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-06T21:31:26.296Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
