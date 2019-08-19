@@ -7,7 +7,7 @@ sudo: false
 
 branches:
   only:
-  - master
+  - writing
 
 cache:
   directories:
@@ -22,7 +22,8 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
+  target_branch: master
   github_token: $GITHUB_TOKEN
   local_dir: _book/
   on:
-    branch: master
+    branch: writing
