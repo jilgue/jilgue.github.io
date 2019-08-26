@@ -15,6 +15,12 @@ Start
 $ jupyter-lab
 ```
 
+Export
+------
+```bash
+$ jupyter nbconvert README.ipynb --to markdown --output README.md
+```
+
 Shortcuts
 ---------
 
