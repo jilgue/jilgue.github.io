@@ -28,6 +28,12 @@ Shortcuts
 
 * Insert cell below currently selected cell -> **B**
 
+* Copy cell currently selected cell -> **C**
+
+* Cut cell currently selected cell -> **X**
+
+* Paste cell currently selected cell -> **V**
+
 * Delete cell currently selected cell -> **dd**
 
 * Change cell type of currently selected cell -> **M (Markdown)** / **Y (Code)**
@@ -39,3 +45,4 @@ Shortcuts
 * Execute cell (run code) -> **shift + enter**
 
 https://medium.com/@rrfd/jupyter-notebook-shortcuts-tips-and-tricks-top-nbextensions-bring-order-to-your-notebooks-pt-1-b58f270963f9
+https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/
