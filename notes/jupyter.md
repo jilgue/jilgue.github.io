@@ -21,6 +21,28 @@ Export
 $ jupyter nbconvert README.ipynb --to markdown --output README.md
 ```
 
+### Export to pdf
+
+Install requisites:
+```bash
+# pacman -S asciidoc asciidoctor pandoc
+$ gem install asciidoctor-pdf --pre
+$ gem install rouge
+$ gem install pygments.rb
+$ gem install coderay
+```
+
+Export to asciidoc
+```bash
+$ jupyter nbconvert README.ipynb --to=asciidoc --output README.asciidoc
+```
+
+Export asciidoc to pdf with custom theme
+```bash
+$ export BASE=~/projects/sistemas/plantillas/.asciidoc
+$ asciidoctor -a lang=es -r asciidoctor-pdf -a pdf-stylesdir="$BASE"/themes -a pdf-style=custom -a pdf-fontsdir="$BASE"/fonts -b pdf README.asciidoc
+```
+
 Shortcuts
 ---------
 
