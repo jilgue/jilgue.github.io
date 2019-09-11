@@ -15,6 +15,22 @@ Start
 $ jupyter-lab
 ```
 
+Start as server:
+```bash
+$ jupyter notebook --generate-config
+```
+
+Edit `.jupyter/jupyter_notebook_config.py` with:
+```ini
+c.NotebookApp.ip = '*'
+c.NotebookApp.allow_remote_access = True
+```
+
+And start the server:
+```bash
+$ jupyter-lab
+```
+
 Export
 ------
 ```bash
@@ -42,6 +58,31 @@ Export asciidoc to pdf with custom theme
 $ export BASE=~/projects/sistemas/plantillas/.asciidoc
 $ asciidoctor -a lang=es -r asciidoctor-pdf -a pdf-stylesdir="$BASE"/themes -a pdf-style=custom -a pdf-fontsdir="$BASE"/fonts -b pdf README.asciidoc
 ```
+
+### Using LaTex
+
+Template: https://michaelgoerz.net/notes/custom-template-for-converting-jupyter-notebooks-to-latex.html
+
+```bash
+$ jupyter nbconvert --to=latex --template=./revtex.tplx README.ipynb
+$ pdflatex README.tex
+```
+
+Use Markdown cell with LaTex commands in Jupyter Notebook, one command per cell.
+
+LaTex
+-----
+
+    \tableofcontents
+
+    \pagebreak
+
+### RevTex
+
+https://journals.aps.org/revtex
+https://osl.ugr.es/CTAN/macros/latex/contrib/revtex/doc/auguide/summary4-2.pdf
+https://osl.ugr.es/CTAN/macros/latex/contrib/revtex/doc/auguide/auguide4-2.pdf
+
 
 Shortcuts
 ---------
