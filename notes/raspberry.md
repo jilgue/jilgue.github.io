@@ -79,10 +79,12 @@ https://www.firesticktricks.com/git-browser-kodi.html
 https://www.addictivetips.com/media-streaming/kodi/install-netflix-on-kodi/ ??
 
 ### Amazon
+
 https://github.com/Sandmann79/xbmc/releases
 https://github.com/Sandmann79/xbmc/issues/22
 
-###netflix
+### Netflix
+
 https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netflix-1.0.1.zip
 - https://github.com/peak3d/inputstream.adaptive
 - https://forum.kodi.tv/showthread.php?tid=329767
@@ -90,6 +92,8 @@ https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netf
 !!!! testbuild https://forum.kodi.tv/showthread.php?tid=298461
 
 `ssh root@192.168.0.159 libreelec`
+
+### Kodiadictos
 
 https://kodiadictos.com/la-fuente-de-kodiadictos/
 https://kodiadictos.com/alfa-el-mejor-addon-de-kodi/
