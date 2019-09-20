@@ -8,16 +8,16 @@
     - [Netflix](#netflix)
     - [Fuentes](#fuentes)
 - [LibreELEC](#libreelec)
-    - [Cacharrito](#cacharrito)
-  - [OpenELEC](#openelec)
+  - [Amazon](#amazon)
+  - [Cacharrito](#cacharrito)
+- [OpenELEC](#openelec)
 - [Archlinux](#archlinux)
   - [LXDE](#lxde)
   - [Netflix](#netflix-1)
 - [Gentoo](#gentoo)
+- [Recursos](#recursos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-http://qdosmsq.dunbar-it.co.uk/blog/2013/06/noobs-for-raspberry-pi/
 
 ## Raspbian x86
 https://github.com/mikerr/RPi-QEMU-x86-wine
@@ -26,7 +26,7 @@ https://sourceforge.net/projects/pi-qemu-wine/files/
 ## Raspbian
 
 ```
-# dd bs=4M if=2019-04-08-raspbian-stretch-full.img of=/dev/sda conv=fsync
+# dd bs=4M if=2019-04-08-raspbian-stretch-full.img of=/dev/sdb conv=fsync
 # unzip -p 2018-11-13-raspbian-stretch.zip | sudo dd of=/dev/sdX bs=4M conv=fsync
 ```
 
@@ -45,14 +45,13 @@ root@raspberrypi:~# apt-get install kodi
 root@raspberrypi:~# apt-get install pulseaudio-module-bluetooth
 ```
 
-* bluetooth audio
-** https://youness.net/raspberry-pi/how-to-connect-bluetooth-headset-or-speaker-to-raspberry-pi-3
+bluetooth audio: https://youness.net/raspberry-pi/how-to-connect-bluetooth-headset-or-speaker-to-raspberry-pi-3
 ```
 [B06 APTX]# power on
 Changing power on succeeded
 [B06 APTX]# agent on
 Agent registered
-[B06 APTX]# default-agent 
+[B06 APTX]# default-agent
 Default agent request successful
 [B06 APTX]# connect E3:28:E9:23:1E:08
 ```
@@ -65,7 +64,7 @@ pi@raspberrypi:~ $ pip install --user pycryptodomex
 https://github.com/CastagnaIT/plugin.video.netflix
 https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.0.zip
 Install from zip
-Install add-on from repository 
+Install add-on from repository
 
 #### Fuentes
 
@@ -79,16 +78,18 @@ https://wiki.libreelec.tv/pulseaudio
 https://www.firesticktricks.com/git-browser-kodi.html
 https://www.addictivetips.com/media-streaming/kodi/install-netflix-on-kodi/ ??
 
-amazon https://github.com/Sandmann79/xbmc/releases
-       https://github.com/Sandmann79/xbmc/issues/22
+### Amazon
+https://github.com/Sandmann79/xbmc/releases
+https://github.com/Sandmann79/xbmc/issues/22
 
-netflix https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netflix-1.0.1.zip
+###netflix
+https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netflix-1.0.1.zip
 - https://github.com/peak3d/inputstream.adaptive
 - https://forum.kodi.tv/showthread.php?tid=329767
 
 !!!! testbuild https://forum.kodi.tv/showthread.php?tid=298461
 
-ssh root@192.168.0.159 libreelec
+`ssh root@192.168.0.159 libreelec`
 
 https://kodiadictos.com/la-fuente-de-kodiadictos/
 https://kodiadictos.com/alfa-el-mejor-addon-de-kodi/
@@ -98,14 +99,14 @@ https://kodiadictos.com/real-stream/
  + kodi / programas / extendedInfoScript
 personalizar menú: https://forum.kodi.tv/showthread.php?tid=89678
 
-#### Cacharrito
+### Cacharrito
 
-ssh: ..c4ch4rr1t0
+ssh: `..c4ch4rr1t0`
 
 https://github.com/CastagnaIT/plugin.video.netflix
 https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.0.zip
 Install from zip
-Install add-on from repository 
+Install add-on from repository
 
 Enable Input Stream Add-on Add-ons >> Package icon >> My Add-ons >> Video Player Inputstream >> Inputstream Adaptive >> menu >> enable
 
@@ -122,7 +123,7 @@ https://abc.go.com/shows/once-upon-a-time/episode-guide/season-1
 
 https://www.wirelesshack.org/how-to-install-exodus-redux-kodi-addon.html
 
-### OpenELEC
+## OpenELEC
 
 http://releases.openelec.tv/OpenELEC-RPi2.arm-8.0.4.img.gz
 
@@ -151,3 +152,9 @@ widevine: https://archlinuxarm.org/forum/viewtopic.php?f=60&t=13189&p=60437&hili
 ## Gentoo
 
 https://wiki.gentoo.org/wiki/Raspberry_Pi_3_64_bit_Install
+
+## Recursos
+
+* https://www.makeuseof.com/tag/netflix-amazon-video-plex-raspberry-pi/
+* https://raspberryparanovatos.com/tutoriales/drm-navegador-raspberry-pi/
+* https://developers.whatismybrowser.com/useragents/explore/operating_system_name/chromeos/
