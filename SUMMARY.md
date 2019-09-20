@@ -12,7 +12,8 @@
 ## Notes
 * [Cómo generar jilgue.github.io](notes/gitbook.md)
 * [Ansible](notes/ansible.md) 
-* [JupyterLab](notes/jupyter.md) 
+* [JupyterLab](notes/jupyter.md)
+* [Raspberry](notes/raspberry.md)
 
 ### Cheat Sheet
 * [GIT](notes/cheat-sheet/git.md)
