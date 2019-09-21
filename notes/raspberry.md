@@ -95,6 +95,10 @@ https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netf
 
 `ssh root@192.168.0.159 libreelec`
 
+### Spotify
+
+https://github.com/kodi-community-addons/repository.marcelveldt
+
 ### Kodiadictos
 
 https://kodiadictos.com/la-fuente-de-kodiadictos/
