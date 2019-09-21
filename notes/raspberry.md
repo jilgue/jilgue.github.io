@@ -112,8 +112,6 @@ personalizar menú: https://forum.kodi.tv/showthread.php?tid=89678
 
 ### Cacharrito
 
-ssh: `..c4ch4rr1t0`
-
 https://github.com/CastagnaIT/plugin.video.netflix
 https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.0.zip
 Install from zip
