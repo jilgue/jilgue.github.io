@@ -10,6 +10,7 @@
 - [LibreELEC](#libreelec)
   - [Amazon](#amazon)
   - [Netflix](#netflix-1)
+  - [Spotify](#spotify)
   - [Kodiadictos](#kodiadictos)
   - [Cacharrito](#cacharrito)
 - [OpenELEC](#openelec)
