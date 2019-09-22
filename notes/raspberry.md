@@ -117,6 +117,7 @@ https://github.com/castagnait/repository.castagnait/raw/master/repository.castag
 Install from zip
 Install add-on from repository
 
+Install Input Stream >> libreelec add ons
 Enable Input Stream Add-on Add-ons >> Package icon >> My Add-ons >> Video Player Inputstream >> Inputstream Adaptive >> menu >> enable
 
 https://forum.kodi.tv/showthread.php?tid=331136
