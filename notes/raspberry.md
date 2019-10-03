@@ -60,14 +60,11 @@ Default agent request successful
 ```
 
 #### Netflix
+
 ```
 root@raspberrypi:~# apt-get install kodi-inputstream-adaptive
 pi@raspberrypi:~ $ pip install --user pycryptodomex
 ```
-https://github.com/CastagnaIT/plugin.video.netflix
-https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.0.zip
-Install from zip
-Install add-on from repository
 
 #### Fuentes
 
@@ -81,6 +78,8 @@ https://wiki.libreelec.tv/pulseaudio
 https://www.firesticktricks.com/git-browser-kodi.html
 https://www.addictivetips.com/media-streaming/kodi/install-netflix-on-kodi/ ??
 
+`ssh root@192.168.0.159 libreelec`
+
 ### Amazon
 
 https://github.com/Sandmann79/xbmc/releases
@@ -88,13 +87,16 @@ https://github.com/Sandmann79/xbmc/issues/22
 
 ### Netflix
 
-https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netflix-1.0.1.zip
+https://github.com/kodinerds/repo/blob/master/repository.netflix/repository.netflix-1.0.1.zip !! NO funciona
 - https://github.com/peak3d/inputstream.adaptive
 - https://forum.kodi.tv/showthread.php?tid=329767
 
 !!!! testbuild https://forum.kodi.tv/showthread.php?tid=298461
 
-`ssh root@192.168.0.159 libreelec`
+https://github.com/CastagnaIT/plugin.video.netflix
+https://github.com/castagnait/repository.castagnait/raw/master/repository.castagnait-1.0.0.zip
+Install from zip
+Install add-on from repository
 
 ### Spotify
 
