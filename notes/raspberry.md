@@ -11,6 +11,7 @@
   - [Amazon](#amazon)
   - [Netflix](#netflix-1)
   - [Spotify](#spotify)
+  - [Alfa](#alfa)
   - [Kodiadictos](#kodiadictos)
   - [Cacharrito](#cacharrito)
 - [OpenELEC](#openelec)
@@ -101,6 +102,10 @@ Install add-on from repository
 ### Spotify
 
 https://github.com/kodi-community-addons/repository.marcelveldt
+
+### Alfa
+
+https://github.com/alfa-addon/alfa-repo/blob/master/repository.alfa-addon/repository.alfa-addon-1.0.4.zip
 
 ### Kodiadictos
 
