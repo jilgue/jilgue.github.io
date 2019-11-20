@@ -2,7 +2,9 @@
 
 Cambiar de grupo sin reiniciar: `newgrp`
 
-Rename en ArchLinux: `$ perl-rename -n 's/^3./4./g' *`
+Rename en ArchLinux:
+* `$ perl-rename -n 's/^3./4./g' *`
+* `$ perl-rename 's/ /_/g' file.txt`
 
 Sed:
 ```bash
