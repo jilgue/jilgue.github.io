@@ -74,6 +74,8 @@ Para ello hay que tener el fichero `ansible.cfg` en la carpeta con nuestro playb
 enable_plugins = gcp_compute
 ```
 
+Y tener las siguientes dependencias de python instaladas: `pip install ansible==2.8.5 requests google-auth jmespath`
+
 El fichero de inventario tendrá una pinta como esta:
 ```yaml
 ---
