@@ -11,10 +11,10 @@
 * [DNS en ArchLinux cuando usas OpenVpn](archlinux/dns-openvpn.md)
 
 ## Notes
-* [Cómo generar jilgue.github.io](notes/gitbook.md)
-* [Ansible](notes/ansible.md) 
+* [Cómo generar jilgue.github.io](notes/gitbook.md) 
 * [JupyterLab](notes/jupyter.md)
 * [Raspberry](notes/raspberry.md)
+* [Linux](notes/linux.md)
 
 ### Cheat Sheet
 * [GIT](notes/cheat-sheet/git.md)
@@ -24,3 +24,6 @@
 
 ## ElasticSearch
 * [Cluster de ElasticSearch en Google Compute Engine](elasticsearch/gcp-cluster.md)
+
+## Ansible
+* [Molecule](ansible/molecule.md)
