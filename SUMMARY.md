@@ -20,7 +20,10 @@
 * [GIT](notes/cheat-sheet/git.md)
 
 ## Laravel
+* [Notas](laravel/notes.md)
+* [Recursos](laravel/resources.md)
 * [Json Storage](laravel/jsonstorage.md)
+
 
 ## ElasticSearch
 * [Cluster de ElasticSearch en Google Compute Engine](elasticsearch/gcp-cluster.md)
