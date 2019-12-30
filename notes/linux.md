@@ -23,3 +23,16 @@ $ sed -i 's/namespace: default//g' */*
 # ip route del 10.10.20.0/24
 # ip route add default via 192.168.50.100
 ```
+
+## Extending a Mounted Ext4 File System on LVM in Linux
+
+```bash
+cfdisk /dev/sdb
+pvcreate /dev/sdb1
+vgextend vg /dev/sdb1
+lvresize --resizefs --size +931GB /dev/vg/lv_home
+# or
+
+lvextend -L+931GB /dev/vg/lv_home
+resize2fs /dev/vg/lv_home
+```
