@@ -36,3 +36,6 @@ lvresize --resizefs --size +931GB /dev/vg/lv_home
 lvextend -L+931GB /dev/vg/lv_home
 resize2fs /dev/vg/lv_home
 ```
+
+## Borrar directorio except
+`$ rm -v !("filename")`
