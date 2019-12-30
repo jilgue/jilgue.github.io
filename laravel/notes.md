@@ -10,3 +10,8 @@ Para no tener que usar un controlador general por cada página vamos a usar los 
 
 {{ $seo_metas(request()->getPathInfo()) }}
 ```
+
+10 Hidden Laravel Eloquent Features You May Not Know
+----------------------------------------------------
+
+https://medium.com/@JinoAntony/10-hidden-laravel-eloquent-features-you-may-not-know-efc8ccc58d9e
