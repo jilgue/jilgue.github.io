@@ -37,3 +37,7 @@
 
 ## Apache
 * [mod_rewrite Cheat Sheet](apache/mod_rewrite_cheat_sheet.md)
+
+## Python
+* [cli](python/cli.md)
+* [files](python/files.md)

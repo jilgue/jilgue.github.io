@@ -36,3 +36,26 @@ def test_vars(host):
     assert False
 
 ```
+
+Para que esto funcione necesitas tener el molecule con la siguiente pinta:
+```yaml
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
+        physical_device: /dev/sdb
+        logical_volume_size: 100%FREE
+        logical_volume_resizefs: true
+        logical_volume_shrink: false
+        filesystem_type: xfs
+        mount_path_mode: 0755
+        volume_group: volume
+        logical_volume_name: logical
+        mount_path: /path/mount
+    host_vars:
+      ubuntu:
+        physical_device: /dev/sdc
+      centos:
+        physical_device: /dev/sdb
+```
