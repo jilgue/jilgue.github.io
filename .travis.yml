@@ -14,9 +14,10 @@ cache:
     - node_modules
 
 install:
-  - npm install -g gitbook-cli
+  - npm install -g gitbook-cli gitbook-summary
 
 script:
+  - book sm -t "CallePuzzle Page" -i presentacion-proyecto
   - gitbook build
 
 deploy:
