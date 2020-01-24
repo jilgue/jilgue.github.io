@@ -2,6 +2,11 @@
 
 2017-01-30 10:03:15 +0100
 
+USB installation:
+```bash
+# dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
+```
+
 First steps:
 ```bash
 # loadkeys es
