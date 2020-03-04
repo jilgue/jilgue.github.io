@@ -1,0 +1,363 @@
+<!doctype html>
+
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Persistencia e integridad de datos en memorias Flash</title>
+
+    <meta name="description" content="Persistencia e integridad de datos en memorias Flash">
+    <meta name="author" content="César Martín Cristóbal">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-background="#555A5F">
+	  <h1>Persistencia e integridad de datos en memorias Flash</h1>
+
+	  <h3>Ingeniería Técnica  De Telecomunicación, Sistemas De Telecomunicación</h3>
+	  <p> César Martín Cristóbal</p>
+	  <img src="fig/portada_logoetsit.jpg">
+	</section>
+
+	<section data-background-transition="slide">
+	  <h2>¿Qué son las memorias Flash?</h2>
+	    <ul>
+	      <li class="fragment">Una evolución de la memoria EEPROM</li>
+	      <li class="fragment">Basadas en transistores MOS de puerta flotante</li>
+	      <li class="fragment">Se dividen en dos clases:</li>
+	      <ul>
+		<li class="fragment">NOR:</li>
+		<ul>
+		  <li class="fragment">Acceso aleatorio</li>
+		  <li class="fragment">Almacenar sofware que es ejecutado</li>
+		</ul>
+		<li class="fragment">NAND:</li>
+		<ul>
+		  <li class="fragment">Modo secuencial</li>
+		  <li class="fragment">Almacenamiento masivo</li>
+		</ul>
+	      </ul>
+	    </ul>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <h2>Motivación</h2>
+	    <ul>
+	      <li class="fragment">El uso de las memorias Flash está bastante extendido</li>
+	      	<ul>
+		  <li class="fragment">Uso general</li>
+		  <li class="fragment">Aplicaciones industriales</li>
+		</ul>
+	    </ul>
+	    <img  height="250" class="fragment" src="fig/US-SSD-Price.png">
+	    <ul>
+	      <li class="fragment">Pueden almacenar información sensible e importante</li>
+	      <li class="fragment">Problema: cada bloque de memoria soporta unos ciclos de escritura/borrado</li>
+	    </ul>
+	</section>
+
+	<section data-background-transition="slide">
+	  <h2>Objetivos</h2>
+	    <ul>
+	      <li class="fragment">Determinar el tamaño de sector en hardware y software</li>
+	      <li class="fragment">Determinar cómo funciona la tabla de nombres</li>
+	      <li class="fragment">¿El controlador mueve datos entre bloques para alargar la vida de los mismos?</li>
+	      <ul>
+		<li class="fragment">¿Un borrado implica cambios "físicos"?</li>
+		<li class="fragment">¿El montar y desmontar un dispositivo implica movimiento de datos?</li>
+	      </ul>
+	      <li class="fragment">Determinar la vida útil (ciclos de vida) de un sector</li>
+	      <li class="fragment">Ver qué información queda después en un sector roto</li>
+	    </ul>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <h2>Estado de la tecnología</h2>
+	    <ul>
+	      <span class="fragment">
+		<li>Para realizar los experimentos hemos contado con dos equipos</li>
+		<ul>
+		  <li>Parte de una red interna de <a href="gf.tel.uva.es">gf.tel.uva.es</a></li>
+		</ul>
+	      </span>
+	      <li class="fragment">El controlador es un Alcor AU6989ANHL, privativo de empresa</li>
+	      <span class="fragment">
+	      <li>La memoria es una BIWIN BW29F64G08CBABA</li>
+	      <ul>
+		<li>De tipo Micron 20nm MLC Flash</li>
+		<li>Tienen la capacidad de guardar más de un bit de información</li>
+	      </ul>
+	      </span>
+	      <span class="fragment">
+		<li>Formateadas con FAT32</li>
+		<ul>
+		  <li>Sistema de archivos desarrollado para MS-DOS</li>
+		  <li>Utiliza direcciones de cluster de 32 KiB</li>
+		  <li>Tamaño de bloque de 4K</li>
+		</ul>
+	      </span>
+	</section>
+
+	<section data-background-transition="slide">
+	  <h2>Utilidades</h2>
+	    <ul>
+	      <li class="fragment">Comandos Linux</li>
+	      <ul>
+		<li class="fragment"><code>dd</code>, <code>df</code>, <code>hexdump</code>, <code>md5sum</code>, <code>iotop</code>, <code>ls -l | wc -l</code>, <code>od -x</code></li>
+	      </ul>
+	      <li class="fragment">Bash:</li>
+	      <ul>
+		<li class="fragment">Intérprete de órdenes</li>
+	      </ul>
+	      <li class="fragment">Shell:</li>
+	      <ul>
+		<li class="fragment">Marco que ejecuta comandos</li>
+		<li class="fragment">chmod u+x script.sh</li>
+	      </ul>
+	      <li class="fragment">Git:</li>
+	      <ul>
+		<li class="fragment">Control de versiones</li>
+		<li class="fragment"><a href="https://github.com/jilgue/flashcrash">https://github.com/jilgue/flashcrash</a></li>
+	      </ul>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <h2>¿Cómo trabajar desde fuera de la ETSiT?</h2>
+	  <div>
+	    <img height="250" style="float:left" src="fig/tunel-ssh2.png">
+	    <div style="float:right">
+	      <ul>
+		<span class="fragment">
+		  <li>SSH</li>
+		  <ul>
+		    <li>Protocolo de shell remota segura</li>
+		    <li>Autenticación público/privada</li>
+		    <li>$ ssh-keygen -t rsa -b 2048</li>
+		    <li>Añadir .pub en .ssh/authorized_keys</li>
+		  </ul>
+		</span>
+	      </ul>
+	    </div>
+	  </div>
+	  <div style="clear:both;">
+	    <span class="fragment">
+	      <ul>
+		<li>Tunelando con ssh</li>
+		<ul>
+		  <li>$ ssh -L 2222:donatello:22 -L 2221:leonardo:22 usuario@gf.tel.uva.es</li>
+		  <li>$ ssh usuario@localhost -p2221 -X</li>
+		</ul>
+		<li class="fragment">Screen</li>
+	      </ul>
+	  </div>
+	</section>
+
+	<section data-background-transition="slide">
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <ul>
+	      <li class="fragment">El tamaño de bloque del sistema de archivos es de 4K</li>
+	      <li class="fragment">Experimentos:</li>
+	      <ul>
+		<li class="fragment">Buscar resto de ficheros sobreescritos</li>
+		<li class="fragment">Buscar diferencias al copiar un byte</li>
+		<li class="fragment">Cuánto se separan dos archivos</li>
+		<ul>
+		  <li class="fragment">Separación de 4096 bytes</li>
+		</ul>
+		<li class="fragment" style="font-weight: bold;color:black">Persistencia de datos</li>
+	      </ul>
+	  </section>
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <img width="850" src="fig/nombreCCBBtamVacio.png">
+	    <p>Tabla de nombres con la referencias a los archivos</p>
+	  </section>
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <img width="850" src="fig/datosCCtamVacio.png">
+	    <p>Dato CC en la posición 7692288</p>
+	  </section>
+	  <section>
+	    <h2>Tamaño del bloque de memoria</h2>
+	    <img width="850" src="fig/datosBBtamVacio.png">
+	    <p>Dato BB en la posición 7696384</p>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <section>
+	    <h2>Tabla de nombres</h2>
+	    <ul>
+	      <li class="fragment">Se guarda el registro de los ficheros</li>
+	      <li class="fragment">Cada fichero ocupa en memoria 4K</li>
+	      <li class="fragment">Tras crear 32.767 el dispositivo se llenó</li>
+	      <ul>
+		<li class="fragment">La tabla de nombres empieza en el byte 7831552</li>
+		<li class="fragment">Cada tabla ocupa 4096 bytes</li>
+		<li class="fragment">El tamaño reservado para datos por "página" es de 256K</li>
+		<li class="fragment">Solo había ocupados 130M</li>		
+		<ul>
+		  <li class="fragment">Suponemos que se llenó la tabla de nombres</li>
+		</ul>
+	      </ul>
+	      <li class="fragment">Mejoramos el script y hasta llegar a crear 65.535 ficheros</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h2>Tabla de nombres</h2>
+	    <img width="850" src="fig/tablanombres5.png">
+	    <p>Tabla de nombres llena con 65.535 archivos</p>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide">
+	  <section>
+	    <h2>Movimiento de datos entre sectores</h2>
+	    <ul>
+	      <li class="fragment">El controlador puede reordenar los datos</li>
+	      <ul>
+		<li class="fragment">Se conoce como wear levelling</li>
+	      </ul>
+	      <li class="fragment">El montado y desmontado implica movimiento de datos</li>
+	      <ul>
+		<li class="fragment">md5sum</li>
+	      </ul>
+	      <li class="fragment">Comparar las imágenes de antes y después</li>
+	      <ul>
+		<li class="fragment">Tiene una limitación</li>
+		<li class="fragment">Con bless no era viable</li>
+		<li class="fragment">meld no conseguía calcular las diferencias</li>
+		<li class="fragment">diff -y calcula diferencias pero incorrectamente</li>
+		<li class="fragment">Desarrollamos un programa en C que compara un binario bit a bit</li>
+	      </ul>
+	    </ul>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <section>
+	    <h2>Vida útil</h2>
+	    <ul>
+	      <li class="fragment">Pruebas con el script flash_b2.sh</li>
+	      <li class="fragment">Las memorias tienen <span style="font-weight: bold;color:black">bloques reservados</span></li>
+	      <li class="fragment">Pruebas más largas:</li>
+	      <ul>
+		<li class="fragment">50.356.021 ciclos de escritura/borrado</li>
+		<li class="fragment">Errores de entrada/salida y dejase de estar accesible</li>
+	      </ul>
+	    </ul>
+	    <img width="850" class="fragment" src="fig/errorlectura.png">
+	    <ul style="float:left">
+	      <li class="fragment">Mejoramos el script</li>
+	      <ul>
+		<li class="fragment">mount - umount</li>
+	      </ul>
+	    </ul>
+	  </section>
+	  <section>
+	    <h2>Vida útil</h2>
+	    <img width="850" src="fig/flash1.png">
+	    <p>Estado inicial de la prueba</p>
+	  </section>
+
+	  <section data-background="#555A6F">
+	    <h2>Vida útil</h2>
+	    <img width="512" src="fig/flash2.png">
+	  </section>
+	</section>
+
+	<section data-background-transition="slide">
+	  <section>
+	    <h2>Conclusiones</h2>
+	    <ul>
+	      <li class="fragment">El tamaño de bloque de memoria que impone el sistema de ficheros se mantiene a nivel físico</li>
+	      <li class="fragment">El montado y desmontado del dispositivo no genera cambios</li>
+	      <li class="fragment">Analizar las diferencias entre imágenes no es una tarea tribial</li>
+	      <li class="fragment">Son más frágiles los componentes que acompañan a la memoria que la propia memoria</li>
+	      <li class="fragment">Es necesario encontrar un procedimiento más eficientes para "flashear" memorias </li>
+	    </ul>
+	  </section>
+	</section>
+
+	<section data-background-transition="slide" data-background="#555A5F">
+	  <section>
+	    <h2>Líneas futuras</h2>
+	    <ul>
+	      <li class="fragment">Mejorar el script para determinar la vida útil</li>
+	      <li class="fragment">El moviento de datos entre sectores de forma más eficaz</li>
+	      <ul>
+		<li class="fragment">Comparar imágenes binarias de gran tamaño</li>
+	      </ul>
+	      <li class="fragment">La recuperación de datos</li>
+	      <ul>
+		<li class="fragment">Prototipo con una FPGA y un lector de chips</li>
+	      </ul>
+	      <li class="fragment">Diseñar un grabador con una FPGA</li>
+	    </ul>
+	  </section>
+	</section>
+
+	<section> 
+	  <h1>¡Muchas gracias!</h1>
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      backgroundTransition: 'slide',
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>

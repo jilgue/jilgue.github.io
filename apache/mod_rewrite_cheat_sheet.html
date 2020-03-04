@@ -1,0 +1,1209 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Mod Rewrite Cheat Sheet · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Ansible
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ansible/molecule.html">
+            
+                <a href="../ansible/molecule.html">
+            
+                    
+                    Molecule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ansible/testinfra.html">
+            
+                <a href="../ansible/testinfra.html">
+            
+                    
+                    Testinfra
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ansible/vault.html">
+            
+                <a href="../ansible/vault.html">
+            
+                    
+                    Vault
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Apache
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="mod_rewrite_cheat_sheet.html">
+            
+                <a href="mod_rewrite_cheat_sheet.html">
+            
+                    
+                    Mod Rewrite Cheat Sheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Archlinux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../archlinux/archlinux-battery-life.html">
+            
+                <a href="../archlinux/archlinux-battery-life.html">
+            
+                    
+                    Archlinux Battery Life
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../archlinux/archlinux-on-slimbook.html">
+            
+                <a href="../archlinux/archlinux-on-slimbook.html">
+            
+                    
+                    Archlinux On Slimbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../archlinux/archlinux-ssd-configuration.html">
+            
+                <a href="../archlinux/archlinux-ssd-configuration.html">
+            
+                    
+                    Archlinux Ssd Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../archlinux/dns-openvpn.html">
+            
+                <a href="../archlinux/dns-openvpn.html">
+            
+                    
+                    Dns Openvpn
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Callepuzzle
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../callepuzzle/certbot.html">
+            
+                <a href="../callepuzzle/certbot.html">
+            
+                    
+                    Certbot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Elasticsearch
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../elasticsearch/api-utils.html">
+            
+                <a href="../elasticsearch/api-utils.html">
+            
+                    
+                    Api Utils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../elasticsearch/gcp-cluster.html">
+            
+                <a href="../elasticsearch/gcp-cluster.html">
+            
+                    
+                    Gcp Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../elasticsearch/monitoring.html">
+            
+                <a href="../elasticsearch/monitoring.html">
+            
+                    
+                    Monitoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Gcloud
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../gcloud/app-engine.html">
+            
+                <a href="../gcloud/app-engine.html">
+            
+                    
+                    App Engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../gcloud/bucket.html">
+            
+                <a href="../gcloud/bucket.html">
+            
+                    
+                    Bucket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../gcloud/functions.html">
+            
+                <a href="../gcloud/functions.html">
+            
+                    
+                    Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../gcloud/general.html">
+            
+                <a href="../gcloud/general.html">
+            
+                    
+                    General
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../gcloud/gke.html">
+            
+                <a href="../gcloud/gke.html">
+            
+                    
+                    Gke
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../gcloud/iam.html">
+            
+                <a href="../gcloud/iam.html">
+            
+                    
+                    Iam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../gcloud/network.html">
+            
+                <a href="../gcloud/network.html">
+            
+                    
+                    Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../gcloud/pubsub.html">
+            
+                <a href="../gcloud/pubsub.html">
+            
+                    
+                    Pubsub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../gcloud/sql.html">
+            
+                <a href="../gcloud/sql.html">
+            
+                    
+                    Sql
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Git
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../git/change-multiple-authors.html">
+            
+                <a href="../git/change-multiple-authors.html">
+            
+                    
+                    Change Multiple Authors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../git/cheat-sheet.html">
+            
+                <a href="../git/cheat-sheet.html">
+            
+                    
+                    Cheat Sheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../git/getting-started.html">
+            
+                <a href="../git/getting-started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../git/notes.html">
+            
+                <a href="../git/notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Kubernetes
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../kubernetes/pv.html">
+            
+                <a href="../kubernetes/pv.html">
+            
+                    
+                    Pv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Laravel
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../laravel/jsonstorage.html">
+            
+                <a href="../laravel/jsonstorage.html">
+            
+                    
+                    Jsonstorage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../laravel/notes.html">
+            
+                <a href="../laravel/notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../laravel/resources.html">
+            
+                <a href="../laravel/resources.html">
+            
+                    
+                    Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    Notes
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../notes/asciidoc.html">
+            
+                <a href="../notes/asciidoc.html">
+            
+                    
+                    Asciidoc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../notes/gitbook.html">
+            
+                <a href="../notes/gitbook.html">
+            
+                    
+                    Gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../notes/jupyter.html">
+            
+                <a href="../notes/jupyter.html">
+            
+                    
+                    Jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../notes/kubernetes.html">
+            
+                <a href="../notes/kubernetes.html">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../notes/linux.html">
+            
+                <a href="../notes/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../notes/load-test.html">
+            
+                <a href="../notes/load-test.html">
+            
+                    
+                    Load Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../notes/mikrotik.html">
+            
+                <a href="../notes/mikrotik.html">
+            
+                    
+                    Mikrotik
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../notes/postgresql.html">
+            
+                <a href="../notes/postgresql.html">
+            
+                    
+                    Postgresql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../notes/raspberry.html">
+            
+                <a href="../notes/raspberry.html">
+            
+                    
+                    Raspberry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.10" data-path="../notes/ssl.html">
+            
+                <a href="../notes/ssl.html">
+            
+                    
+                    Ssl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.11" data-path="../notes/terraform.html">
+            
+                <a href="../notes/terraform.html">
+            
+                    
+                    Terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Php
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../php/notes.html">
+            
+                <a href="../php/notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../python/cli.html">
+            
+                <a href="../python/cli.html">
+            
+                    
+                    Cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../python/files.html">
+            
+                <a href="../python/files.html">
+            
+                    
+                    Files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Web Html
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../web-html/head.html">
+            
+                <a href="../web-html/head.html">
+            
+                    
+                    Head
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../web-html/uniform-resource-identifier.html">
+            
+                <a href="../web-html/uniform-resource-identifier.html">
+            
+                    
+                    Uniform Resource Identifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Mod Rewrite Cheat Sheet</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="modrewrite-cheat-sheet">mod_rewrite Cheat Sheet</h1>
+<h3 id="title_4_92 .cheat_sheet_output_title">mod_re&#xAD;write Tutorials </h3>
+<pre><code>
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [http:/&#xAD;/ht&#xAD;tpd.ap&#xAD;ach&#xAD;e.o&#xAD;rg/&#xAD;doc&#xAD;s/c&#xAD;urr&#xAD;ent&#xAD;/re&#xAD;write/](http://httpd.apache.org/docs/current/rewrite/)
+  [http:/&#xAD;/ww&#xAD;w.a&#xAD;dde&#xAD;dby&#xAD;tes.co&#xAD;m/f&#xAD;or-&#xAD;beg&#xAD;inn&#xAD;ers&#xAD;/ur&#xAD;l-r&#xAD;ewr&#xAD;iti&#xAD;ng-&#xAD;for&#xAD;-be&#xAD;gin&#xAD;ners/](http://www.addedbytes.com/for-beginners/url-rewriting-for-beginners/)
+  [http:/&#xAD;/ne&#xAD;t.t&#xAD;uts&#xAD;plu&#xAD;s.c&#xAD;om/&#xAD;tut&#xAD;ori&#xAD;als&#xAD;/ot&#xAD;her&#xAD;/a-&#xAD;dee&#xAD;per&#xAD;-lo&#xAD;ok-&#xAD;at-&#xAD;mod&#xAD;\_re&#xAD;wri&#xAD;te-&#xAD;for&#xAD;-ap&#xAD;ache/](http://net.tutsplus.com/tutorials/other/a-deeper-look-at-mod_rewrite-for-apache/)
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+</code></pre><h3 id="title_4_15 .cheat_sheet_output_title">mod_re&#xAD;write Rewrit&#xAD;eRule Flags </h3>
+<pre><code>
+  -------------- -----------------------------------------------------
+  C              Chained with next rule
+  CO=cookie      Set specified cookie
+  E=var:&#xAD;value   Set enviro&#xAD;nmental variable &#x201C;var&#x201D; to &#x201C;value&#x201D;
+  F              Forbidden (403 header)
+  G              Gone - no longer exists
+  H=handler      Set handler
+  L              Last - stop processing rules
+  N              Next - continue processing
+  NC             Case insens&#xAD;itive
+  NE             Do not escape output
+  NS             Ignore if subrequest
+  P              Proxy
+  PT             Pass through
+  R[=code]       Redirect to new URL, with optional code (see below)
+  QSA            Append query string
+  S=x            Skip next x rules
+  T=mime&#xAD;-type   Set mime type
+  -------------- -----------------------------------------------------
+</code></pre><h3 id="title_4_93 .cheat_sheet_output_title">mod_re&#xAD;write Rewrit&#xAD;eCond Flags </h3>
+<pre><code>
+  ---- -------------------------------------------------------------------
+  NC   Case insens&#xAD;itive
+  OR   Combine with next rule using &apos;OR&apos; instead of the default of &apos;AND&apos;
+  ---- -------------------------------------------------------------------
+</code></pre><h3 id="title_4_94 .cheat_sheet_output_title">Redire&#xAD;ction Header Codes </h3>
+<pre><code>
+  ----- ------------------------------
+  301   Moved perman&#xAD;ently
+  302   Moved tempor&#xAD;arily (default)
+  ----- ------------------------------
+</code></pre><h3 id="title_4_91 .cheat_sheet_output_title">mod_re&#xAD;write Directives </h3>
+<p>Rewrit&#xAD;eEngine</p>
+<p>RewriteMap</p>
+<p>Rewrit&#xAD;eOp&#xAD;tions</p>
+<p>Rewrit&#xAD;eBase</p>
+<p>RewriteLog</p>
+<p>Rewrit&#xAD;eCond</p>
+<p>Rewrit&#xAD;eLo&#xAD;gLevel</p>
+<p>Rewrit&#xAD;eRule</p>
+<p>Rewrit&#xAD;eLock</p>
+<h3 id="title_4_8 .cheat_sheet_output_title">Regular Expres&#xAD;sions Syntax </h3>
+<pre><code>
+  ----------- -------------------------
+  \^          Start of string
+  \$          End of string
+  .           Any single character
+  (a|b)       a or b
+  (...)       Group section
+  [abc]       In range (a, b or c)
+  [\^abc]     Not in range
+  \\s         White space
+  a?          Zero or one of a
+  a\*         Zero or more of a
+  a\*?        Zero or more, ungreedy
+  a+          One or more of a
+  a+?         One or more, ungreedy
+  a{3}        Exactly 3 of a
+  a{3,}       3 or more of a
+  a{,6}       Up to 6 of a
+  a{3,6}      3 to 6 of a
+  a{3,6}?     3 to 6 of a, ungreedy
+  \\          Escape character
+  [:punct:]   Any punctu&#xAD;ation symbol
+  [:space:]   Any space character
+  [:blank:]   Space or tab
+  ----------- -------------------------
+</code></pre><p>There&apos;s an excellent regular expression tester at:
+<a href="http://regexpal.com/" target="_blank">http:/&#xAD;/re&#xAD;gex&#xAD;pal.com/</a></p>
+<h3 id="title_4_89 .cheat_sheet_output_title">mod_re&#xAD;write Server Variables: HTTP Headers </h3>
+<pre><code>
+  ---------------------------------
+  %{HTTP&#xAD;\_US&#xAD;ER\_&#xAD;AGENT}
+  %{HTTP&#xAD;\_RE&#xAD;FERER}
+  %{HTTP&#xAD;\_CO&#xAD;OKIE}
+  %{HTTP&#xAD;\_FO&#xAD;RWA&#xAD;RDED}
+  %{HTTP&#xAD;\_HOST}
+  %{HTTP&#xAD;\_PR&#xAD;OXY&#xAD;\_CO&#xAD;NNE&#xAD;CTION}
+  %{HTTP&#xAD;\_AC&#xAD;CEPT}
+  ---------------------------------
+</code></pre><h3 id="title_4_88 .cheat_sheet_output_title">mod_re&#xAD;write Server Variables: Server Internals </h3>
+<pre><code>
+  ------------------------
+  %{DOCU&#xAD;MEN&#xAD;T\_ROOT}
+  %{SERV&#xAD;ER\_&#xAD;ADMIN}
+  %{SERV&#xAD;ER\_&#xAD;NAME}
+  %{SERV&#xAD;ER\_&#xAD;ADDR}
+  %{SERV&#xAD;ER\_&#xAD;PORT}
+  %{SERV&#xAD;ER\_&#xAD;PRO&#xAD;TOCOL}
+  %{SERV&#xAD;ER\_&#xAD;SOF&#xAD;TWARE}
+  ------------------------
+</code></pre><h3 id="title_4_96 .cheat_sheet_output_title">mod_re&#xAD;write Sample Rule: Site Moved </h3>
+<pre><code>
+  ----------------------------------------------------------------------------------------------
+  \# Site moved perman&#xAD;ently
+  Rewrit&#xAD;eCond %{HTTP&#xAD;\_HOST} \^www.d&#xAD;oma&#xAD;in.com\$ [NC]
+  Rewrit&#xAD;eRule \^(.\*)\$ [http:/&#xAD;/ww&#xAD;w.d&#xAD;oma&#xAD;in2.com/\$1](http://www.domain2.com/$1) [R=301,L]
+  ----------------------------------------------------------------------------------------------
+</code></pre><p>Rewrites domain.com to domain&#xAD;2.com</p>
+<h3 id="title_4_97 .cheat_sheet_output_title">mod_re&#xAD;write Sample Rule: Temporary Page Move </h3>
+<pre><code>
+  ------------------------------------------------------
+  \# Page has moved tempor&#xAD;arily
+  Rewrit&#xAD;eRule \^page.h&#xAD;tml\$ new\_pa&#xAD;ge.html [R,NC,L]
+  ------------------------------------------------------
+</code></pre><p>Rewrites domain.co&#xAD;m/p&#xAD;age.html to domain.co&#xAD;m/n&#xAD;ew_&#xAD;pag&#xAD;e.html</p>
+<h3 id="title_4_98 .cheat_sheet_output_title">mod_re&#xAD;write Sample Rule: Nice URLs </h3>
+<pre><code>
+  -----------------------------------------------------------------------
+  \# Nice URLs (no query string)
+  Rewrit&#xAD;eRule \^([A-Z&#xAD;a-z&#xAD;0-9&#xAD;-]+)/?\$ catego&#xAD;rie&#xAD;s.p&#xAD;hp?&#xAD;name=\$1 [L]
+  -----------------------------------------------------------------------
+</code></pre><p>Rewrites domain.co&#xAD;m/c&#xAD;ate&#xAD;gor&#xAD;y-n&#xAD;ame-1/ to
+domain.co&#xAD;m/c&#xAD;ate&#xAD;gor&#xAD;ies.ph&#xAD;p?n&#xAD;ame&#xAD;=ca&#xAD;teg&#xAD;ory&#xAD;-name-1</p>
+<h3 id="title_4_87 .cheat_sheet_output_title">mod_re&#xAD;write Server Variables: Special </h3>
+<pre><code>
+  -------------------------
+  %{API\_&#xAD;VER&#xAD;SION}
+  %{THE\_&#xAD;REQ&#xAD;UEST}
+  %{REQU&#xAD;EST&#xAD;\_URI}
+  %{REQU&#xAD;EST&#xAD;\_FI&#xAD;LENAME}
+  %{IS\_S&#xAD;UBREQ}
+  %{HTTPS}
+  -------------------------
+</code></pre><h3 id="title_4_90 .cheat_sheet_output_title">mod_re&#xAD;write Server Variables: Request </h3>
+<pre><code>
+  ------------------------
+  %{REMO&#xAD;TE\_&#xAD;ADDR}
+  %{REMO&#xAD;TE\_&#xAD;HOST}
+  %{REMO&#xAD;TE\_&#xAD;PORT}
+  %{REMO&#xAD;TE\_&#xAD;USER}
+  %{REMO&#xAD;TE\_&#xAD;IDENT}
+  %{REQU&#xAD;EST&#xAD;\_ME&#xAD;THOD}
+  %{SCRI&#xAD;PT\_&#xAD;FIL&#xAD;ENAME}
+  %{PATH&#xAD;\_INFO}
+  %{QUER&#xAD;Y\_S&#xAD;TRING}
+  %{AUTH&#xAD;\_TYPE}
+  ------------------------
+</code></pre><h3 id="title_4_86 .cheat_sheet_output_title">mod_re&#xAD;write Server Variables: Time </h3>
+<pre><code>
+  ----------------
+  %{TIME&#xAD;\_YEAR}
+  %{TIME&#xAD;\_MON}
+  %{TIME&#xAD;\_DAY}
+  %{TIME&#xAD;\_HOUR}
+  %{TIME&#xAD;\_MIN}
+  %{TIME&#xAD;\_SEC}
+  %{TIME&#xAD;\_WDAY}
+  %{TIME}
+  ----------------
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Mod Rewrite Cheat Sheet","level":"1.3.1","depth":2,"next":{"title":"Archlinux","level":"1.4","depth":1,"ref":"","articles":[{"title":"Archlinux Battery Life","level":"1.4.1","depth":2,"path":"archlinux/archlinux-battery-life.md","ref":"archlinux/archlinux-battery-life.md","articles":[]},{"title":"Archlinux On Slimbook","level":"1.4.2","depth":2,"path":"archlinux/archlinux-on-slimbook.md","ref":"archlinux/archlinux-on-slimbook.md","articles":[]},{"title":"Archlinux Ssd Configuration","level":"1.4.3","depth":2,"path":"archlinux/archlinux-ssd-configuration.md","ref":"archlinux/archlinux-ssd-configuration.md","articles":[]},{"title":"Dns Openvpn","level":"1.4.4","depth":2,"path":"archlinux/dns-openvpn.md","ref":"archlinux/dns-openvpn.md","articles":[]}]},"previous":{"title":"Apache","level":"1.3","depth":1,"ref":"","articles":[{"title":"Mod Rewrite Cheat Sheet","level":"1.3.1","depth":2,"path":"apache/mod_rewrite_cheat_sheet.md","ref":"apache/mod_rewrite_cheat_sheet.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apache/mod_rewrite_cheat_sheet.md","mtime":"2020-03-04T09:57:21.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T09:58:12.659Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
