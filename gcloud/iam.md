@@ -17,6 +17,10 @@ Role / Billing / Billing account user
 
 https://cloud.google.com/iam/docs/understanding-roles#predefined_roles
 
+Añadir permisos a un service account gcloud projects add-iam-policy-binding patinando-developerenvironment --member serviceAccount:terraform-infraestuture@patinando-developerenvironment.iam.gserviceaccount.com --role roles/editor
+
+gcloud projects get-iam-policy patinando-run-test
+
 ### Billing
 
 #### Billing Roles
