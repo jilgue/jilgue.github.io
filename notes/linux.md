@@ -39,3 +39,7 @@ resize2fs /dev/vg/lv_home
 
 ## Borrar directorio except
 `$ rm -v !("filename")`
+
+## Exec find dos2unix
+
+`$ find . -name "*.tf" -type f -exec dos2unix {} \;`
