@@ -471,7 +471,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.9" data-path="../gcloud/sql.html">
+        <li class="chapter " data-level="1.7.9" data-path="../gcloud/service-to-service.html">
+            
+                <a href="../gcloud/service-to-service.html">
+            
+                    
+                    Service To Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../gcloud/sql.html">
             
                 <a href="../gcloud/sql.html">
             
@@ -993,10 +1006,41 @@
 <p>Partition the disks:
 Create one partition boot and and another for the rest.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># fdisk /dev/sda</span>
-
-Disposit.  Inicio Comienzo     Final  Sectores Tama&#xF1;o Id Tipo
-/dev/sda1             2048    821247    819200   400M 83 Linux
-/dev/sda2           821248 234441647 233620400 111,4G 83 Linux
+</code></pre>
+<p>UEFI with GPT:</p>
+<table>
+<thead>
+<tr>
+<th>Mount point</th>
+<th>Partition</th>
+<th>Partition type</th>
+<th>Suggested size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/mnt/boot</code> or <code>/mnt/efi</code></td>
+<td><code>/dev/sdX1</code></td>
+<td>EFI system partition</td>
+<td>260&#x2013;512 MiB</td>
+</tr>
+<tr>
+<td><code>/mnt</code></td>
+<td><code>/dev/sdX2</code></td>
+<td>Linux x86-64 root (/)</td>
+<td>Remainder of the device</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td><code>/dev/sdX3</code></td>
+<td>Linux swap</td>
+<td>More than 512 MiB</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-bash">Device     Boot   Start       End   Sectors   Size Id Type
+/dev/sda1          2048   1050623   1048576   512M 83 Linux
+/dev/sda2       1050624 234441647 233391024 111.3G 83 Linux
 </code></pre>
 <p>Encrypt the disc:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># cryptsetup luksFormat /dev/sda2</span>
@@ -1004,22 +1048,22 @@ Disposit.  Inicio Comienzo     Final  Sectores Tama&#xF1;o Id Tipo
 </code></pre>
 <p>Create root and swap volumes:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># vgcreate Vol /dev/mapper/cryptolvm</span>
-<span class="hljs-comment"># lvcreate -L 8G Vol -n swap</span>
+<span class="hljs-comment"># lvcreate -L 16G Vol -n swap</span>
 <span class="hljs-comment"># lvcreate -l 100%FREE Vol -n root</span>
 </code></pre>
 <p>Format the partitions:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># mkfs.ext4 /dev/mapper/Vol-root</span>
 <span class="hljs-comment"># mkswap /dev/mapper/Vol-swap</span>
-<span class="hljs-comment"># mkfs.ext2 /dev/sda1</span>
+<span class="hljs-comment"># mkfs.vfat /dev/sda1</span>
 </code></pre>
 <p>Mount the file systems:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># mount /dev/mapper/Vol-root /mnt</span>
 <span class="hljs-comment"># swapon /dev/mapper/Vol-swap</span>
-<span class="hljs-comment"># mkdir /mnt/boot</span>
-<span class="hljs-comment"># mount /dev/sda1 /mnt/boot</span>
+<span class="hljs-comment"># mkdir -p /mnt/boot/efi</span>
+<span class="hljs-comment"># mount /dev/sda1 /mnt/boot/</span>
 </code></pre>
 <p>Install the base packages:</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacstrap /mnt base base-devel</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacstrap /mnt base base-devel linux linux-firmware</span>
 </code></pre>
 <p>Generate fstab:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span>
@@ -1028,8 +1072,7 @@ Disposit.  Inicio Comienzo     Final  Sectores Tama&#xF1;o Id Tipo
 <pre><code class="lang-bash"><span class="hljs-comment"># arch-chroot /mnt</span>
 </code></pre>
 <p>Configurate time zone:</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime</span>
-<span class="hljs-comment"># ls -l /etc/localtime</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># ls -l /etc/localtime</span>
 <span class="hljs-comment"># rm /etc/localtime</span>
 <span class="hljs-comment"># ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime</span>
 <span class="hljs-comment"># hwclock --systohc</span>
@@ -1049,21 +1092,29 @@ KEYMAP=es
 slimbook
 </code></pre>
 <p>Initramfs:</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/mkinitcpio.conf</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S lvm2 xfsprogs</span>
+<span class="hljs-comment"># vim /etc/mkinitcpio.conf</span>
 HOOKS=<span class="hljs-string">&quot;base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard fsck&quot;</span>
 <span class="hljs-comment"># mkinitcpio -p linux</span>
 </code></pre>
 <pre><code class="lang-bash"><span class="hljs-comment"># passwd</span>
 </code></pre>
+<p>Microcode:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S intel-ucode</span>
+</code></pre>
 <p>Boot loader</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S grub</span>
-<span class="hljs-comment"># grub-install --target=i386-pc /dev/sda</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># pacman -S grub efibootmgr</span>
+<span class="hljs-comment"># grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span>
 <span class="hljs-comment"># vim /etc/default/grub</span>
 GRUB_CMDLINE_LINUX=<span class="hljs-string">&quot;cryptdevice=/dev/sda2:lvm root=/dev/mapper/Vol-root elevator=noop&quot;</span>
-GRUB_CMDLINE_LINUX_DEFAULT=<span class="hljs-string">&quot;quiet resume=/dev/mapper/Vol-swap&quot;</span>
+GRUB_CMDLINE_LINUX_DEFAULT=<span class="hljs-string">&quot;loglevel=3 quiet resume=/dev/mapper/Vol-swap&quot;</span>
 <span class="hljs-comment"># grub-mkconfig -o /boot/grub/grub.cfg</span>
 </code></pre>
-<p><em>reboot</em></p>
+<p>Reboot:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># exit</span>
+<span class="hljs-comment"># umount -R /mnt</span>
+<span class="hljs-comment"># reboot</span>
+</code></pre>
 <p>Add user:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># useradd -m -g users -G wheel -s /bin/bash cesar</span>
 </code></pre>
@@ -1117,7 +1168,7 @@ GRUB_CMDLINE_LINUX_DEFAULT=<span class="hljs-string">&quot;quiet resume=/dev/map
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Archlinux On Slimbook","level":"1.4.2","depth":2,"next":{"title":"Archlinux Ssd Configuration","level":"1.4.3","depth":2,"path":"archlinux/archlinux-ssd-configuration.md","ref":"archlinux/archlinux-ssd-configuration.md","articles":[]},"previous":{"title":"Archlinux Battery Life","level":"1.4.1","depth":2,"path":"archlinux/archlinux-battery-life.md","ref":"archlinux/archlinux-battery-life.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"archlinux/archlinux-on-slimbook.md","mtime":"2020-03-04T09:57:21.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T09:58:12.659Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Archlinux On Slimbook","level":"1.4.2","depth":2,"next":{"title":"Archlinux Ssd Configuration","level":"1.4.3","depth":2,"path":"archlinux/archlinux-ssd-configuration.md","ref":"archlinux/archlinux-ssd-configuration.md","articles":[]},"previous":{"title":"Archlinux Battery Life","level":"1.4.1","depth":2,"path":"archlinux/archlinux-battery-life.md","ref":"archlinux/archlinux-battery-life.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"archlinux/archlinux-on-slimbook.md","mtime":"2020-07-02T16:51:08.538Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-02T16:51:53.056Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
