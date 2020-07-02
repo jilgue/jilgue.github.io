@@ -27,3 +27,6 @@ then
 fi
 ' --tag-name-filter cat -- --branches --tags
 ```
+
+
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='yourname'; GIT_AUTHOR_EMAIL='youremail@example.com'; GIT_COMMITTER_NAME='yourname'; GIT_COMMITTER_EMAIL='youremail@example.com';" HEAD;
