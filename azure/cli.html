@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="powershell.html" />
+    <link rel="next" href="databricks.html" />
     
-    
-    <link rel="prev" href="blob-storage.html" />
     
 
     </head>
@@ -335,20 +333,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="blob-storage.html">
-            
-                <a href="blob-storage.html">
-            
-                    
-                    Blob Storage
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6.2" data-path="cli.html">
+        <li class="chapter active" data-level="1.6.1" data-path="cli.html">
             
                 <a href="cli.html">
             
@@ -361,7 +346,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="powershell.html">
+        <li class="chapter " data-level="1.6.2" data-path="databricks.html">
+            
+                <a href="databricks.html">
+            
+                    
+                    Databricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="notes.html">
+            
+                <a href="notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="powershell.html">
             
                 <a href="powershell.html">
             
@@ -374,12 +385,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="resource-manager.html">
+        <li class="chapter " data-level="1.6.5" data-path="resource-manager.html">
             
                 <a href="resource-manager.html">
             
                     
                     Resource Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="storage-account.html">
+            
+                <a href="storage-account.html">
+            
+                    
+                    Storage Account
             
                 </a>
             
@@ -1216,7 +1240,10 @@ az sql server show -n sql-server-name -g sql-server-group --query &quot;publicNe
 # Update setting for Public Network Access
 az sql server update -n sql-server-name -g sql-server-group --set publicNetworkAccess=&quot;Disabled&quot;
 </code></pre><pre><code>mssql-cli -S sql-sl01-dev01-paa01-weu-01.database.windows.net -d sdb-sl01-dev01-paa01-weu-01 -U user -P password
-</code></pre>
+</code></pre><h2 id="iam">IAM</h2>
+<p><code>az role assignment list --subscription sus-azu-sls-sl01-dev01-paa01-01 --output json --query &apos;[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}&apos;</code></p>
+<p><code>az ad sp list --display-name spn-automation-arm-sl01-dev01-paa01</code></p>
+
                                 
                                 </section>
                             
@@ -1243,12 +1270,8 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
             
                 
-                <a href="blob-storage.html" class="navigation navigation-prev " aria-label="Previous page: Blob Storage">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="powershell.html" class="navigation navigation-next " aria-label="Next page: Powershell">
+                <a href="databricks.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Databricks">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1259,7 +1282,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cli","level":"1.6.2","depth":2,"next":{"title":"Powershell","level":"1.6.3","depth":2,"path":"azure/powershell.md","ref":"azure/powershell.md","articles":[]},"previous":{"title":"Blob Storage","level":"1.6.1","depth":2,"path":"azure/blob-storage.md","ref":"azure/blob-storage.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"azure/cli.md","mtime":"2020-07-24T16:15:45.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-24T16:16:38.081Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Cli","level":"1.6.1","depth":2,"next":{"title":"Databricks","level":"1.6.2","depth":2,"path":"azure/databricks.md","ref":"azure/databricks.md","articles":[]},"previous":{"title":"Azure","level":"1.6","depth":1,"ref":"","articles":[{"title":"Cli","level":"1.6.1","depth":2,"path":"azure/cli.md","ref":"azure/cli.md","articles":[]},{"title":"Databricks","level":"1.6.2","depth":2,"path":"azure/databricks.md","ref":"azure/databricks.md","articles":[]},{"title":"Notes","level":"1.6.3","depth":2,"path":"azure/notes.md","ref":"azure/notes.md","articles":[]},{"title":"Powershell","level":"1.6.4","depth":2,"path":"azure/powershell.md","ref":"azure/powershell.md","articles":[]},{"title":"Resource Manager","level":"1.6.5","depth":2,"path":"azure/resource-manager.md","ref":"azure/resource-manager.md","articles":[]},{"title":"Storage Account","level":"1.6.6","depth":2,"path":"azure/storage-account.md","ref":"azure/storage-account.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"azure/cli.md","mtime":"2020-07-30T12:24:23.105Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-30T12:25:21.411Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
