@@ -33,3 +33,11 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 ```
 mssql-cli -S sql-sl01-dev01-paa01-weu-01.database.windows.net -d sdb-sl01-dev01-paa01-weu-01 -U user -P password
 ```
+
+
+IAM
+---
+
+`az role assignment list --subscription sus-azu-sls-sl01-dev01-paa01-01 --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'`
+
+`az ad sp list --display-name spn-automation-arm-sl01-dev01-paa01`

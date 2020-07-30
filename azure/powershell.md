@@ -1,5 +1,9 @@
 # Azure PowerShell
 
+start `pwsh`
+
+login `Connect-AzAccount` -> use a web browser to open the page https://microsoft.com/devicelogin and enter the code
+
 https://docs.microsoft.com/en-us/powershell/azure/install-Az-ps?view=azps-4.3.0
  Install:
  ```
