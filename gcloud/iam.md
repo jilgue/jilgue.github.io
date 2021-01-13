@@ -2,6 +2,11 @@ Google Cloud - IAM
 ============
 
 ```
+gcloud auth login
+gcloud auth application-default login
+```
+
+```
 gcloud projects get-iam-policy (PROJECT_ID) > filename.yaml
 gcloud projects set-iam-policy PROJECT_ID filename.yaml
 gcloud projects add-iam-policy-binding PROJECT_ID --member user:{{user's email}} --role roles/editor
@@ -46,7 +51,7 @@ gcloud projects get-iam-policy patinando-run-test
 
 Find all charges that were more than 3 dollars:
 ```
-  SELECT product, resource_type, start_time, end_time,  
+  SELECT product, resource_type, start_time, end_time,
   cost, project_id, project_name, project_labels_key, currency, currency_conversion_rate,
   usage_amount, usage_unit
   FROM `cloud-training-prod-bucket.arch_infra.billing_data`

@@ -26,11 +26,14 @@ $ sed -i 's/namespace: default//g' */*
 
 ## Extending a Mounted Ext4 File System on LVM in Linux
 
+`echo 1 > /sys/block/sdX/device/rescan`
+
 ```bash
 cfdisk /dev/sdb
 pvcreate /dev/sdb1
 vgextend vg /dev/sdb1
 lvresize --resizefs --size +931GB /dev/vg/lv_home
+lvresize --extents +100%FREE --resizefs /dev/data/kafka
 # or
 
 lvextend -L+931GB /dev/vg/lv_home
@@ -43,3 +46,6 @@ resize2fs /dev/vg/lv_home
 ## Exec find dos2unix
 
 `$ find . -name "*.tf" -type f -exec dos2unix {} \;`
+
+## Listen ports
+`# lsof -i -P -n | grep LISTEN`
