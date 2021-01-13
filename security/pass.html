@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Iam · GitBook</title>
+        <title>Pass · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,6 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="network.html" />
-    
-    
-    <link rel="prev" href="gke.html" />
     
 
     </head>
@@ -554,9 +550,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.10.1" data-path="app-engine.html">
+        <li class="chapter " data-level="1.10.1" data-path="../gcloud/app-engine.html">
             
-                <a href="app-engine.html">
+                <a href="../gcloud/app-engine.html">
             
                     
                     App Engine
@@ -567,9 +563,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.2" data-path="bucket.html">
+        <li class="chapter " data-level="1.10.2" data-path="../gcloud/bucket.html">
             
-                <a href="bucket.html">
+                <a href="../gcloud/bucket.html">
             
                     
                     Bucket
@@ -580,9 +576,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.3" data-path="functions.html">
+        <li class="chapter " data-level="1.10.3" data-path="../gcloud/functions.html">
             
-                <a href="functions.html">
+                <a href="../gcloud/functions.html">
             
                     
                     Functions
@@ -593,9 +589,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.4" data-path="general.html">
+        <li class="chapter " data-level="1.10.4" data-path="../gcloud/general.html">
             
-                <a href="general.html">
+                <a href="../gcloud/general.html">
             
                     
                     General
@@ -606,9 +602,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.5" data-path="gke.html">
+        <li class="chapter " data-level="1.10.5" data-path="../gcloud/gke.html">
             
-                <a href="gke.html">
+                <a href="../gcloud/gke.html">
             
                     
                     Gke
@@ -619,9 +615,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10.6" data-path="iam.html">
+        <li class="chapter " data-level="1.10.6" data-path="../gcloud/iam.html">
             
-                <a href="iam.html">
+                <a href="../gcloud/iam.html">
             
                     
                     Iam
@@ -632,9 +628,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.7" data-path="network.html">
+        <li class="chapter " data-level="1.10.7" data-path="../gcloud/network.html">
             
-                <a href="network.html">
+                <a href="../gcloud/network.html">
             
                     
                     Network
@@ -645,9 +641,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.8" data-path="pubsub.html">
+        <li class="chapter " data-level="1.10.8" data-path="../gcloud/pubsub.html">
             
-                <a href="pubsub.html">
+                <a href="../gcloud/pubsub.html">
             
                     
                     Pubsub
@@ -658,9 +654,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.9" data-path="service-to-service.html">
+        <li class="chapter " data-level="1.10.9" data-path="../gcloud/service-to-service.html">
             
-                <a href="service-to-service.html">
+                <a href="../gcloud/service-to-service.html">
             
                     
                     Service To Service
@@ -671,9 +667,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.10" data-path="sql.html">
+        <li class="chapter " data-level="1.10.10" data-path="../gcloud/sql.html">
             
-                <a href="sql.html">
+                <a href="../gcloud/sql.html">
             
                     
                     Sql
@@ -1187,9 +1183,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.18.1" data-path="../security/pass.html">
+        <li class="chapter active" data-level="1.18.1" data-path="pass.html">
             
-                <a href="../security/pass.html">
+                <a href="pass.html">
             
                     
                     Pass
@@ -1280,7 +1276,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Iam</a>
+        <a href=".." >Pass</a>
     </h1>
 </div>
 
@@ -1295,68 +1291,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="google-cloud---iam">Google Cloud - IAM</h1>
-<pre><code>gcloud auth login
-gcloud auth application-default login
-</code></pre><pre><code>gcloud projects get-iam-policy (PROJECT_ID) &gt; filename.yaml
-gcloud projects set-iam-policy PROJECT_ID filename.yaml
-gcloud projects add-iam-policy-binding PROJECT_ID --member user:{{user&apos;s email}} --role roles/editor
-</code></pre><h3 id="add-member-to-organization">Add member to organization</h3>
-<p>Role / Resource Manager / Organization viewer
-Role / Resource Manager / Project creator
-Role / Billing / Billing account user</p>
-<h3 id="lista-de-roles">Lista de roles</h3>
-<p><a href="https://cloud.google.com/iam/docs/understanding-roles#predefined_roles" target="_blank">https://cloud.google.com/iam/docs/understanding-roles#predefined_roles</a></p>
-<p>A&#xF1;adir permisos a un service account gcloud projects add-iam-policy-binding patinando-developerenvironment --member serviceAccount:terraform-infraestuture@patinando-developerenvironment.iam.gserviceaccount.com --role roles/editor</p>
-<p>gcloud projects get-iam-policy patinando-run-test</p>
-<h3 id="billing">Billing</h3>
-<h4 id="billing-roles">Billing Roles</h4>
-<ul>
-<li><p>Billing Account Creator: create new billing accounts</p>
-<ul>
-<li>Organization level only</li>
-</ul>
-</li>
-<li><p>Billing Account Administrator: manage (but not create) accounts</p>
-<ul>
-<li>Configure billing export</li>
-<li>Link / unlink projects</li>
-<li>Manage billing user roles</li>
-</ul>
-</li>
-<li><p>Billing Account User: link project with billing account</p>
-<ul>
-<li>Often paired with Project Creator</li>
-</ul>
-</li>
-<li><p>Billing Account Viewer view billing information</p>
-</li>
-<li><p>Project Billing Manager: link / unlink account to projects</p>
-<ul>
-<li>Similar to Billing Account User, but with no access to projects resources</li>
-<li>Organization or project level</li>
-</ul>
-</li>
-</ul>
-<h4 id="billing-exports">Billing exports</h4>
-<p>Find all charges that were more than 3 dollars:</p>
-<pre><code>  SELECT product, resource_type, start_time, end_time,
-  cost, project_id, project_name, project_labels_key, currency, currency_conversion_rate,
-  usage_amount, usage_unit
-  FROM `cloud-training-prod-bucket.arch_infra.billing_data`
-  WHERE (cost &gt; 3)
-</code></pre><p>Find which product had the highest total number of records:</p>
-<pre><code>  SELECT product, COUNT(*)
-  FROM `cloud-training-prod-bucket.arch_infra.billing_data`
-  GROUP BY product
-  LIMIT 200
-</code></pre><p>Which product most frequently cost more than a dollar:</p>
-<pre><code>  SELECT product, cost, COUNT(*)
-  FROM `cloud-training-prod-bucket.arch_infra.billing_data`
-  WHERE (cost &gt; 1)
-  GROUP BY cost, product
-  LIMIT 200
+                                <h1 id="pass">PASS</h1>
+<p><a href="https://www.passwordstore.org/" target="_blank">https://www.passwordstore.org/</a></p>
+<pre><code class="lang-bash">$ gpg --full-generate-key
+gpg: clave 7E5F3ABE35F95E35 marcada como de confianza absoluta
+gpg: creado el directorio <span class="hljs-string">&apos;/home/cmartin/.gnupg/openpgp-revocs.d&apos;</span>
+gpg: certificado de revocaci&#xF3;n guardado como <span class="hljs-string">&apos;/home/cmartin/.gnupg/openpgp-revocs.d/7F1F42DCDBD8ACF0695CB1257E5F3ABE35F95E35.rev&apos;</span>
+claves p&#xFA;blica y secreta creadas y firmadas.
+
+pub   rsa3072 2020-11-17 [SC]
+      7F1F42DCDBD8ACF0695CB1257E5F3ABE35F95E35
+uid                      C&#xE9;sar Mart&#xED;n Crist&#xF3;bal &lt;cesar@callepuzzle.com&gt;
+sub   rsa3072 2020-11-17 [E]
 </code></pre>
+<pre><code class="lang-bash">$ pass init 7E5F3ABE35F95E35
+mkdir: se ha creado el directorio <span class="hljs-string">&apos;/home/cmartin/.password-store/&apos;</span>
+Password store initialized <span class="hljs-keyword">for</span> 7E5F3ABE35F95E35
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1383,14 +1335,6 @@ Role / Billing / Billing account user</p>
 
             
                 
-                <a href="gke.html" class="navigation navigation-prev " aria-label="Previous page: Gke">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="network.html" class="navigation navigation-next " aria-label="Next page: Network">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1399,7 +1343,7 @@ Role / Billing / Billing account user</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Iam","level":"1.10.6","depth":2,"next":{"title":"Network","level":"1.10.7","depth":2,"path":"gcloud/network.md","ref":"gcloud/network.md","articles":[]},"previous":{"title":"Gke","level":"1.10.5","depth":2,"path":"gcloud/gke.md","ref":"gcloud/gke.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"gcloud/iam.md","mtime":"2021-01-13T08:50:58.479Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T08:51:37.613Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pass","level":"1.18.1","depth":2,"next":{"title":"Web Html","level":"1.19","depth":1,"ref":"","articles":[{"title":"Head","level":"1.19.1","depth":2,"path":"web-html/head.md","ref":"web-html/head.md","articles":[]},{"title":"Uniform Resource Identifier","level":"1.19.2","depth":2,"path":"web-html/uniform-resource-identifier.md","ref":"web-html/uniform-resource-identifier.md","articles":[]}]},"previous":{"title":"Security","level":"1.18","depth":1,"ref":"","articles":[{"title":"Pass","level":"1.18.1","depth":2,"path":"security/pass.md","ref":"security/pass.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"security/pass.md","mtime":"2021-01-13T08:50:58.491Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T08:51:37.613Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
