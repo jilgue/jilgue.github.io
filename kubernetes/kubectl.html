@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Dns Openvpn · GitBook</title>
+        <title>Kubectl · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="slimbook-touchpad.html" />
+    <link rel="next" href="pv.html" />
     
-    
-    <link rel="prev" href="archlinux-ssd-configuration.html" />
     
 
     </head>
@@ -206,9 +204,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="archlinux-battery-life.html">
+        <li class="chapter " data-level="1.4.1" data-path="../archlinux/archlinux-battery-life.html">
             
-                <a href="archlinux-battery-life.html">
+                <a href="../archlinux/archlinux-battery-life.html">
             
                     
                     Archlinux Battery Life
@@ -219,9 +217,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="archlinux-on-slimbook.html">
+        <li class="chapter " data-level="1.4.2" data-path="../archlinux/archlinux-on-slimbook.html">
             
-                <a href="archlinux-on-slimbook.html">
+                <a href="../archlinux/archlinux-on-slimbook.html">
             
                     
                     Archlinux On Slimbook
@@ -232,9 +230,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="archlinux-ssd-configuration.html">
+        <li class="chapter " data-level="1.4.3" data-path="../archlinux/archlinux-ssd-configuration.html">
             
-                <a href="archlinux-ssd-configuration.html">
+                <a href="../archlinux/archlinux-ssd-configuration.html">
             
                     
                     Archlinux Ssd Configuration
@@ -245,9 +243,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="dns-openvpn.html">
+        <li class="chapter " data-level="1.4.4" data-path="../archlinux/dns-openvpn.html">
             
-                <a href="dns-openvpn.html">
+                <a href="../archlinux/dns-openvpn.html">
             
                     
                     Dns Openvpn
@@ -258,9 +256,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="slimbook-touchpad.html">
+        <li class="chapter " data-level="1.4.5" data-path="../archlinux/slimbook-touchpad.html">
             
-                <a href="slimbook-touchpad.html">
+                <a href="../archlinux/slimbook-touchpad.html">
             
                     
                     Slimbook Touchpad
@@ -774,9 +772,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.1" data-path="../kubernetes/kubectl.html">
+        <li class="chapter active" data-level="1.12.1" data-path="kubectl.html">
             
-                <a href="../kubernetes/kubectl.html">
+                <a href="kubectl.html">
             
                     
                     Kubectl
@@ -787,9 +785,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.2" data-path="../kubernetes/pv.html">
+        <li class="chapter " data-level="1.12.2" data-path="pv.html">
             
-                <a href="../kubernetes/pv.html">
+                <a href="pv.html">
             
                     
                     Pv
@@ -800,9 +798,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="../kubernetes/terraform.html">
+        <li class="chapter " data-level="1.12.3" data-path="terraform.html">
             
-                <a href="../kubernetes/terraform.html">
+                <a href="terraform.html">
             
                     
                     Terraform
@@ -813,9 +811,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="../kubernetes/user_authentication_authorization.html">
+        <li class="chapter " data-level="1.12.4" data-path="user_authentication_authorization.html">
             
-                <a href="../kubernetes/user_authentication_authorization.html">
+                <a href="user_authentication_authorization.html">
             
                     
                     User Authentication Authorization
@@ -826,9 +824,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="../kubernetes/utils.html">
+        <li class="chapter " data-level="1.12.5" data-path="utils.html">
             
-                <a href="../kubernetes/utils.html">
+                <a href="utils.html">
             
                     
                     Utils
@@ -1332,7 +1330,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Dns Openvpn</a>
+        <a href=".." >Kubectl</a>
     </h1>
 </div>
 
@@ -1347,14 +1345,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="dns-en-archlinux-cuando-usas-openvpn">DNS en ArchLinux cuando usas OpenVpn</h2>
-<p>Es necesario tener Systemd-resolvconf o Openresolv instalado.</p>
-<p>OpenVpn tiene en su github dos scripts para implementar la parte de &quot;pull-resolv-conf custom scripts&quot;.</p>
-<p><a href="https://github.com/OpenVPN/openvpn/tree/master/contrib/pull-resolv-conf" target="_blank">https://github.com/OpenVPN/openvpn/tree/master/contrib/pull-resolv-conf</a></p>
-<p>Hay que descargar ambos scripts y referenciarlos en la configuraci&#xF3;n de vpn:</p>
-<pre><code>up /etc/openvpn/client/client.up
-down /etc/openvpn/client/client.down
-</code></pre>
+                                <h1 id="kubectl-reference">Kubectl reference</h1>
+<p>kubectl delete pod --field-selector=&quot;status.phase==Failed&quot;</p>
+
                                 
                                 </section>
                             
@@ -1381,12 +1374,8 @@ down /etc/openvpn/client/client.down
 
             
                 
-                <a href="archlinux-ssd-configuration.html" class="navigation navigation-prev " aria-label="Previous page: Archlinux Ssd Configuration">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="slimbook-touchpad.html" class="navigation navigation-next " aria-label="Next page: Slimbook Touchpad">
+                <a href="pv.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Pv">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1397,7 +1386,7 @@ down /etc/openvpn/client/client.down
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dns Openvpn","level":"1.4.4","depth":2,"next":{"title":"Slimbook Touchpad","level":"1.4.5","depth":2,"path":"archlinux/slimbook-touchpad.md","ref":"archlinux/slimbook-touchpad.md","articles":[]},"previous":{"title":"Archlinux Ssd Configuration","level":"1.4.3","depth":2,"path":"archlinux/archlinux-ssd-configuration.md","ref":"archlinux/archlinux-ssd-configuration.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"archlinux/dns-openvpn.md","mtime":"2021-01-20T16:34:57.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-20T16:36:03.700Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubectl","level":"1.12.1","depth":2,"next":{"title":"Pv","level":"1.12.2","depth":2,"path":"kubernetes/pv.md","ref":"kubernetes/pv.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.12","depth":1,"ref":"","articles":[{"title":"Kubectl","level":"1.12.1","depth":2,"path":"kubernetes/kubectl.md","ref":"kubernetes/kubectl.md","articles":[]},{"title":"Pv","level":"1.12.2","depth":2,"path":"kubernetes/pv.md","ref":"kubernetes/pv.md","articles":[]},{"title":"Terraform","level":"1.12.3","depth":2,"path":"kubernetes/terraform.md","ref":"kubernetes/terraform.md","articles":[]},{"title":"User Authentication Authorization","level":"1.12.4","depth":2,"path":"kubernetes/user_authentication_authorization.md","ref":"kubernetes/user_authentication_authorization.md","articles":[]},{"title":"Utils","level":"1.12.5","depth":2,"path":"kubernetes/utils.md","ref":"kubernetes/utils.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kubernetes/kubectl.md","mtime":"2021-01-20T16:34:57.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-20T16:36:03.700Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
