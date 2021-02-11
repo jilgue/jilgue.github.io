@@ -12,3 +12,7 @@ quitar elemeto de una lista:
   permission if permission != "resourcemanager.projects.list"
   ]
 ```
+
+https://github.com/cunymatthieu/tgenv
+
+echo 'yamldecode(file("my-manifest-file.yaml"))' | terraform console
