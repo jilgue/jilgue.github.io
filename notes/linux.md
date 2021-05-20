@@ -26,7 +26,9 @@ $ sed -i 's/namespace: default//g' */*
 
 ## Extending a Mounted Ext4 File System on LVM in Linux
 
-`echo 1 > /sys/block/sdX/device/rescan`
+```bash
+echo 1 > /sys/block/sdX/device/rescan
+```
 
 ```bash
 cfdisk /dev/sdb
@@ -41,11 +43,19 @@ resize2fs /dev/vg/lv_home
 ```
 
 ## Borrar directorio except
-`$ rm -v !("filename")`
+```bash
+$ rm -v !("filename")
+```
 
 ## Exec find dos2unix
 
-`$ find . -name "*.tf" -type f -exec dos2unix {} \;`
+```bash
+$ find . -name "*.tf" -type f -exec dos2unix {} \;
+```
 
 ## Listen ports
-`# lsof -i -P -n | grep LISTEN`
+
+```bash
+# lsof -i -P -n | grep LISTEN
+# ss -ntaupe
+```
