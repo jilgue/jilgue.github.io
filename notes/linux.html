@@ -1426,7 +1426,8 @@ $ sed -i <span class="hljs-string">&apos;s/namespace: default//g&apos;</span> */
 <span class="hljs-comment"># ip route add default via 192.168.50.100</span>
 </code></pre>
 <h2 id="extending-a-mounted-ext4-file-system-on-lvm-in-linux">Extending a Mounted Ext4 File System on LVM in Linux</h2>
-<p><code>echo 1 &gt; /sys/block/sdX/device/rescan</code></p>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> 1 &gt; /sys/block/sdX/device/rescan
+</code></pre>
 <pre><code class="lang-bash">cfdisk /dev/sdb
 pvcreate /dev/sdb1
 vgextend vg /dev/sdb1
@@ -1438,11 +1439,15 @@ lvextend -L+931GB /dev/vg/lv_home
 resize2fs /dev/vg/lv_home
 </code></pre>
 <h2 id="borrar-directorio-except">Borrar directorio except</h2>
-<p><code>$ rm -v !(&quot;filename&quot;)</code></p>
+<pre><code class="lang-bash">$ rm -v !(<span class="hljs-string">&quot;filename&quot;</span>)
+</code></pre>
 <h2 id="exec-find-dos2unix">Exec find dos2unix</h2>
-<p><code>$ find . -name &quot;*.tf&quot; -type f -exec dos2unix {} \;</code></p>
+<pre><code class="lang-bash">$ find . -name <span class="hljs-string">&quot;*.tf&quot;</span> -type f -exec dos2unix {} \;
+</code></pre>
 <h2 id="listen-ports">Listen ports</h2>
-<p><code># lsof -i -P -n | grep LISTEN</code></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># lsof -i -P -n | grep LISTEN</span>
+<span class="hljs-comment"># ss -ntaupe</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1486,7 +1491,7 @@ resize2fs /dev/vg/lv_home
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.16.8","depth":2,"next":{"title":"Load Test","level":"1.16.9","depth":2,"path":"notes/load-test.md","ref":"notes/load-test.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.16.7","depth":2,"path":"notes/kubernetes.md","ref":"notes/kubernetes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"notes/linux.md","mtime":"2021-05-10T07:25:14.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-10T07:26:00.522Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.16.8","depth":2,"next":{"title":"Load Test","level":"1.16.9","depth":2,"path":"notes/load-test.md","ref":"notes/load-test.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.16.7","depth":2,"path":"notes/kubernetes.md","ref":"notes/kubernetes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"notes/linux.md","mtime":"2021-05-20T07:38:29.858Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-20T07:39:04.767Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
