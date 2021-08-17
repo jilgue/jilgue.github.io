@@ -10,6 +10,7 @@ Sed:
 ```bash
 $ sed -i ':a;N;$!ba;s/namespace: default\n//g' */*
 $ sed -i 's/namespace: default//g' */*
+$ sed -i '/  allow_merge_commit              = false/d' *.tf
 ```
 
 ## IP command
