@@ -60,3 +60,9 @@ $ find . -name "*.tf" -type f -exec dos2unix {} \;
 # lsof -i -P -n | grep LISTEN
 # ss -ntaupe
 ```
+
+## SSH
+
+```
+ssh -o "StrictHostKeyChecking=no" -o ControlMaster=auto -o ControlPersist=60s -o UserKnownHostsFile=/dev/null user@ip
+```
