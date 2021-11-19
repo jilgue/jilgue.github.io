@@ -81,3 +81,7 @@
   - git pull --rebase=preserve
 - git fetch --prune <remote> +refs/tags/*:refs/tags/*
 - git merge servotic --allow-unrelated-histories
+
+# Remove branches not on remote
+
+`git branch -D $(git branch -v | grep "\[desaparecido\]" | cut -f 3 -d " ")`
