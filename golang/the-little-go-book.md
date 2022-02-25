@@ -72,7 +72,6 @@ goku := &Saiyan {
 ### Composition
 
 ```go
-
 package main
 
 import "fmt"
@@ -101,5 +100,4 @@ func main() {
 	fmt.Println(goku2.Name)
 	fmt.Println(goku2.Person.Name)
 }
-
 ```
