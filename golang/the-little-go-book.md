@@ -101,3 +101,74 @@ func main() {
 	fmt.Println(goku2.Person.Name)
 }
 ```
+
+## Arrays, slices, maps
+### Arrays
+
+Declaring:
+
+```go
+var scores [10]int
+scores[0] = 339
+scores := [4]int{9001, 9333, 212, 33}
+```
+
+Iterate:
+
+```go
+for index, value := range scores {
+
+}
+```
+
+### Slices
+
+A slice is a lightweight structure that wraps and represents a portion of an array.
+
+```go
+scores := []int{1,4,293,4,9}
+
+scores := make([]int, 0, 10) // this creates a slice with a length of 0 but with a capacity of 10
+
+scores := make([]int, 0, 10)
+scores[7] = 9033 // fails because len is 0
+
+scores := make([]int, 0, 10)
+scores = append(scores, 5) // append increases len and cap
+
+scores := make([]int, 0, 10)
+scores = scores[0:8] // set len = 8
+scores[7] = 9033 // works
+```
+
+### Maps
+
+```go
+func main() {
+    lookup := make(map[string]int)
+    lookup["goku"] = 9001
+    power, exists := lookup["vegeta"]
+    // prints 0, false
+    // 0 is the default value for an integer
+    fmt.Println(power, exists)
+}
+```
+
+```go
+// returns 1
+total := len(lookup)
+// has no return, can be called on a non existing key
+delete(lookup, "goku")
+
+// maps grow dynamically. However, we can supply a second argument to make to set an initial size:
+lookup := make(map[string]int, 100)
+
+lookup := map[string]int{
+    "goku": 9001,
+    "gohan": 2044,
+}
+
+for key, value := range lookup {
+
+}
+```
