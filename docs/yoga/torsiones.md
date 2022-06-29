@@ -1,6 +1,6 @@
 # Torsiones
 
-[https://www.youtube.com/watch?v=LbJMfdCFGLc][https://www.youtube.com/watch?v=LbJMfdCFGLc]
+[https://www.youtube.com/watch?v=LbJMfdCFGLc](https://www.youtube.com/watch?v=LbJMfdCFGLc)
 
 * Calentamiento: brazos en cruz, lleva las manos a los hombros.
 
