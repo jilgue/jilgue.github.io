@@ -2,7 +2,7 @@
 
 ## Presentación proyecto final de carrera
 
-[Persistencia e integridad de datos en memorias Flash](./presentacion-proyecto/index.html)
+[Persistencia e integridad de datos en memorias Flash](https://notes.callepuzzle.com/presentacion-proyecto/index.html)
 
 ## Sys/Dev
 
