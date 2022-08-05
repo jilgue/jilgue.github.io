@@ -1,4 +1,6 @@
-# Learning Resources
+# Resources
+
+## Learning
 
 * https://www.codecademy.com/courses/learn-go/
 * https://www.udemy.com/course/curso-golang/
@@ -8,3 +10,7 @@
 * https://golang.org/doc/effective_go
 * https://gameswithgo.org/
 * https://qvault.io/go-mastery-course/?via=nikolay
+
+## Packages
+
+* https://github.com/waclawthedev/go-sugaring

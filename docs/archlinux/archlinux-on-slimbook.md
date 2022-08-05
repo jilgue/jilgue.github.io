@@ -1,4 +1,4 @@
-# Install Archlinux on Slimbook"
+# Install Archlinux on Slimbook
 
 2017-01-30 10:03:15 +0100
 

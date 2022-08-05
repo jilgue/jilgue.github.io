@@ -2,7 +2,7 @@
 
 2017-02-06 18:03:15 +0100
 
-### Acpid:
+## Acpid:
 
 acpid2 is a flexible and extensible daemon for delivering ACPI events.
 
@@ -12,7 +12,7 @@ acpid2 is a flexible and extensible daemon for delivering ACPI events.
 # systemctl start acpid.service 
 ```
 
-### TLP:
+## TLP:
 
 TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail.
 
@@ -22,14 +22,14 @@ TLP brings you the benefits of advanced power management for Linux without the n
 # systemctl enable tlp.service tlp-sleep.service
 ```
 
-### Microcode:
+## Microcode:
 
 ```bash
 # pacman -S intel-ucode 
 # grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Linux monitoring sensors and CPU frequency scaling
+## Linux monitoring sensors and CPU frequency scaling
 
 ```bash
 # pacman -S lm_sensors 
@@ -39,7 +39,7 @@ TLP brings you the benefits of advanced power management for Linux without the n
 ```
 
 
-### Powertop
+## Powertop
 
 If you don't have enoght with all this, use the powertop optimizer
 ```bash

@@ -1,4 +1,4 @@
-# Configure SSD on Archlinux for Slimbook"
+# Configure SSD on Archlinux for Slimbook
 
 2017-02-05 10:03:15 +0100
 

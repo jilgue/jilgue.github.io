@@ -1,13 +1,13 @@
 Molecule
 ========
 
-Init role:
+## Init role
 ```bash
 $ molecule init role -r new-role -d docker
 $ molecule init scenario -r foo -d docker
 ```
 
-Añadir disco a la VirtualBox:
+## Añadir disco a la VirtualBox
 * Ubuntu:
 ```yaml
     provider_raw_config_args:
