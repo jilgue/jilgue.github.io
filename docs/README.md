@@ -51,6 +51,7 @@
 * [Azure](./notes/azure.md)
 * [Certbot](./notes/certbot.md)
 * [Deep Learning](./notes/deep-learning.md)
+* [Furgo](./notes/furgo.md)
 * [Gitbook](./notes/gitbook.md)
 * [Jira](./notes/jira.md)
 * [Jupyter](./notes/jupyter.md)
