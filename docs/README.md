@@ -72,18 +72,27 @@
 * [HEAD](./web-html/head.md)
 * [Uniform Resource Identifier](./web-html/uniform-resource-identifier.md)
 
+## English
+
+* [English resources](./english/resources.md)
+* [Leonardo English](./english/leonardoenglish.md)
+
 ## Moto
 
 * [Moto](./moto/index.md)
 
-## NinJutsu
+## Deporte
 
-### Curso de instructor
+### NinJutsu
+
+* [Ejercicios (Junan taiso kyuho)](./ninjutsu/ejercicios.md)
+
+#### Curso de instructor
 
 * [Septiembre](./ninjutsu/curso-instructor/septiembre.md)
 
-## Yoga
+### Yoga
 
-### Torsiones
+#### Torsiones
 
 * Clase de [Yoga en casa en directo | Yoga para principiantes y torsiones (04/05/20)](./yoga/torsiones.md)
