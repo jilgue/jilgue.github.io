@@ -53,6 +53,7 @@
 * [Deep Learning](./notes/deep-learning.md)
 * [Furgo](./notes/furgo.md)
 * [Gitbook](./notes/gitbook.md)
+* [Headless CMS](./notes/headless-cms.md)
 * [Jira](./notes/jira.md)
 * [Jupyter](./notes/jupyter.md)
 * [Kubernetes](./notes/kubernetes.md)
