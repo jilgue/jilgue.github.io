@@ -82,3 +82,20 @@
 - leverage: to use something to your advantage
 - a quick win a way to succeed quickly
 - take this to the next level: to proceed with a plan
+
+## Sigmund Freud | Father of Psychoanalysis
+[https://www.leonardoenglish.com/podcasts/freud](https://www.leonardoenglish.com/podcasts/freud)
+
+- shaped: formed, changed
+- household: well-known
+- heritage: ethnic or religious background
+- hardship: difficult conditions
+- urges: strong desires or wishes
+- help out: offer a chance of
+- undeniably: certainly
+- slips: things said by accident
+- fled: ran to escape from danger
+- jaw: mandíbula
+- a fellow: un compañero
+- stumbled upon: found unexpectedly
+- would not last: no duraría
