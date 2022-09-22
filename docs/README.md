@@ -77,6 +77,7 @@
 
 * [English resources](./english/resources.md)
 * [Leonardo English](./english/leonardoenglish.md)
+* [Twenix](./english/twenix.md)
 
 ## Moto
 
