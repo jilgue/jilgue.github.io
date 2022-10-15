@@ -66,3 +66,13 @@ $ find . -name "*.tf" -type f -exec dos2unix {} \;
 ```
 ssh -o "StrictHostKeyChecking=no" -o ControlMaster=auto -o ControlPersist=60s -o UserKnownHostsFile=/dev/null user@ip
 ```
+
+## Spotify ripper
+
+https://github.com/uways/oggify
+
+```bash
+sudo pacman -S rust
+cargo install --path oggify
+/home/cesar/.cargo/bin/oggify
+```
