@@ -141,3 +141,80 @@ For example: Could you please turn the music down? I’m trying to study.
 * Turn Down = To reject an offer or request
 
 For example: Why did you turn down the job? I thought you said it was perfect for you.
+
+### Grammar rules you wish you had learned
+
+**Change the focus with passive voice**
+
+Changing the focus or emphasis in your sentence allows you to direct attention to specific information. Highlighting information in this way changes its importance and can subtly change the message.
+
+We have never seen this kind of support before. -> Never have we seen this kind of support before.
+
+Do you observe how changing the order of the sentence has changed the emphasis. The second sentence provides more significance to the information.
+
+**Conditional inversion of sentences**
+
+English language gives us the liberty to express our thoughts in distinct ways. One such way is to invert the word order in a sentence to emphasize on a particular prose or clause.
+
+Inversion is used in conditional sentences by replacing ‘if’ with ‘had’, ‘were’ and ‘should’.
+
+* If I had been there, this problem wouldn't have happened. -> Had I been there, this problem wouldn't have happened.
+
+* If I had come here before I could have completed the task. -> Had I come here before I could have completed the task.
+
+**But be careful with dangling participles in complex sentences**
+
+* Doing my homework, I noticed that a few of my notes were missing.
+
+In these cases, participles always relate to the subject of the sentence. They describe the action that the subject performs or the state that the subject is in.
+
+* Walking to the university, the rain started to fall, so he opened his umbrella. -> Walking to the university, he opened his umbrella, because the rain started to fall.
+
+This sentence is incorrect! Clearly, it was he who was walking to the university, not the rain.
+
+### Type 1 conditionals made easy
+
+It is also common to use this structure with unless, as long as, as soon as or in case instead of ‘if’. For example:
+
+* I'll leave as soon as the babysitter arrives.
+* I don't want to stay in London unless I get a well-paid job.
+* I'll give you a key in case I'm not at home.
+* You can go to the party, as long as you're back by midnight.
+
+### Elaborating emails at work
+
+* In your email/As per your email
+* Today, tomorrow, next week/In due course of time
+* Here is/Attached herewith
+* Let us know/Kindly advise
+* In another envelope/Under separate cover
+* Enclosed is/Enclosed we find
+* I have just learned/It has just come to my attention
+* Losing money/Financial deficit
+* Close, bring about/Consummate
+* Show/Indicate
+* Believe/Are of the opinion
+* Before/Prior to
+* Because/In view of the fact
+* After/Subsequent to
+
+### How to deal with an angry customer
+
+* If I were in your shoes, I’d feel the same way.
+
+A fool proof way to palliate an angry customer is by empathising with them and be on the same wavelength as theirs — it’s a great way to show you’re on their side and maintain a rapport.
+
+
+* You’re right! I’m more than happy to help you with this.
+
+One of the most powerful tools for calming angry customers is corroboration. When you validate their feelings and their viewpoints about the issues at hand, you show them that you’re on their side. After all, it’s harder to be angry at someone that agrees with you. After all, someone is finally listening — and accepting that there’s a problem to solve.
+
+
+* Have I done something to offend you?
+
+When customers see red, they might lose sight of the situation, and they might even take out their anger on you. You must understand them and try to be in tune because you are just the person they try to take it out on.
+
+
+* I am sorry. I can understand why you’d be upset.
+
+Apologising to angry customers is a good way to not only help calm them down, but to start repairing the customer relationship. It shows that you understand they’ve had a bad experience, and that’s a gratifying feeling. Personalise your apology to their issue because, it shows that you’re listening.
