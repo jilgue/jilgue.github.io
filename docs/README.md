@@ -98,3 +98,12 @@
 #### Torsiones
 
 * Clase de [Yoga en casa en directo | Yoga para principiantes y torsiones (04/05/20)](./yoga/torsiones.md)
+
+### Patines
+
+* [Curso 2022 colegios](./patines/curso-2022.md)
+
+#### Recursos
+
+* [https://www.randomlists.com/random-picker](https://www.randomlists.com/random-picker)
+* [https://www.randomlists.com/team-generator](https://www.randomlists.com/team-generator)
