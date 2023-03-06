@@ -218,3 +218,47 @@ When customers see red, they might lose sight of the situation, and they might e
 * I am sorry. I can understand why you’d be upset.
 
 Apologising to angry customers is a good way to not only help calm them down, but to start repairing the customer relationship. It shows that you understand they’ve had a bad experience, and that’s a gratifying feeling. Personalise your apology to their issue because, it shows that you’re listening.
+
+
+
+
+
+how is a bed and breakfast different from a hotel?
+12:05
+bed and breakfast
+12:05
+m: you rent entire> you can rent an
+12:10
+m: because was > because it was
+12:12
+m: include > included
+12:15
+m: different place > different places
+12:18
+m: move easier > travel more easily
+12:18
+m: you was thinking > you were thinking
+12:19
+coach surfing
+12:20
+couch
+12:20
+m: I think > I think
+
+
+m:" I work IN a company" debe ser "I work AT a company"
+20:04
+ex: plot
+20:09
+m: "near to the beach" debe ser " near the beach" (no necesitas los preposiciones despues de "near").
+20:22
+m:"we rent all the apartment" << "we rent the whole apartment".
+20:23
+pr: comfortable :: "KUMPFF-terr-bull"
+
+
+e: ID card
+14:11
+v: insurance
+14:11
+e: driver's licence
