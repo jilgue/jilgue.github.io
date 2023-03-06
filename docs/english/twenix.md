@@ -219,9 +219,191 @@ When customers see red, they might lose sight of the situation, and they might e
 
 Apologising to angry customers is a good way to not only help calm them down, but to start repairing the customer relationship. It shows that you understand they’ve had a bad experience, and that’s a gratifying feeling. Personalise your apology to their issue because, it shows that you’re listening.
 
+### Useful phrases for remote work meetings
+
+Vocabulary check:
+* Circle back – Come back to or consider again
+* First time around – On the first occasion
+* Pencil in - To schedule or to arrange
+* Get a move on – To speed up
+* In a nutshell – In brief or in short
+* Bottom line – The most important factor
+
+### Reported speech - part 1
+
+* Simple present tense -> simple past
+* Present continuous tense -> past continuous
+* Present perfect tense -> past perfect
+
+Adverbial changes in reported speech
+* Here = there
+* This = that
+* Now = then
+* Today = that day
+* Tonight = that night
+* Tomorrow = the next day/the following day
+* Yesterday = the day before/the previous day
+* Next Monday = the following Monday
+* Last Monday = the previous Monday
+* Next week = the following week
+* Last week = the previous week
+
+### Phrasal verbs with put
+
+Put aside
+* Meaning: ​to ignore or forget something, usually a feeling or difference of opinion
+* For example: My friend and I decided to put aside our differences.
+
+Put asunder
+* Meaning: To separate or to disjoin
+* For example: What God hath joined together, let no man put asunder.
+
+Put away
+* Meaning: To put something in a safe and secret place
+* For example: The gun needs to be put away before someone finds it.
+
+Put across
+* Meaning: Communicate something effectively
+* For example: Our group must put across its views and gain popular support
+
+Put out
+* Meaning: Extinguish something that is burning
+* For example: Fire crews from Grangetown put out the blaze
+
+Put on
+* Meaning: Place a garment, piece of jewellery, etc. on part of one's body
+* For example: Daphne had put on a cotton dress
+
+Put up WITH
+* Meaning: Tolerate or endure something
+* For example: I'm too tired to put up with any nonsense
+
+Put up TO
+* Meaning: To incite one to a course of action
+* For example: They put him up to playing the prank
+
+Put forward
+* Meaning: Recommend someone as a suitable candidate for a job or position.
+* For example: He put me forward as head of publicity
+
+Put through
+* Meaning: To make someone do or experience something difficult or unpleasant
+* For example: The team is put through an intense workout every day.
+
+Put off
+* Meaning: Postpone something
+* For example: They can't put off a decision much longer
+
+Put over
+* Meaning: To communicate your ideas, feelings, etc. successfully to somebody
+* For example: How do we put these ideas over to the public?
+
+### How to apologize for being late
+
+Different ways to apologize for being late
+* I’m sorry, but I won’t be able to make it to my appointment on time.
+* y, but I am running late.
+* e accept my apology to keep you waiting.
+* y sincerest apology for not making it in time. I overslept.
+* I am genuinely sorry, I lost track of time.
+* I am sorry to have kept you waiting.
+
+## Classes
+
+ Andrea McGuffin:
+World Cup?
+13:30
+It is 8;30 p.m.
+13:31
+8:30 p.m.
+13:31
+Roller Blading
+13:32
+Roller Skating
+13:33
+Rollerblading
+13:34
+Ice Skating
+13:35
+That is what I want to try.
+13:35
+He already knew.
+13:36
+I am a System Administrator.
+13:37
+Drawback = Disadvantage
+13:45
+Since = Seens
+
+If you have to rush
+18:11
+sweet (suit) dulce, suite (sut) traje
+18:19
+avoid
 
 
+ Saabirah Abrahams:
+m: to have to my class> find time to have a class
+10:33
+m: to work in home> to work at home
+10:33
+m: to visit friends in house> to visit friends at their house
+10:40
+m: how important is have a meeting face to face> how important face to face meetings are
+10:45
+m: to do a break> to have a break
 
+
+- v: productive
+
+- v: commute
+
+- To travel regularly a distance between work and home.
+
+- v: value
+
+- To consider something important.
+
+- v: wi-fi
+
+- v: peak season fare
+
+- The price you pay to travel during a time of year when prices are usually at their highest.
+
+- v: amenity
+
+- Something, such as a swimming pool or shopping centre, that is intended to make life more pleasant or comfortable for the people in a town, hotel, or other place.
+
+- v: campsite
+
+- A piece of land where people on holiday can camp, usually with toilets and places for washing.
+
+- v: handmade
+
+- Made using the hands rather than a machine.
+
+- v: child-friendly
+
+- Reasonable - not too expensive.
+
+V: bunch > a number of things of the same type fastened or closely grouped together
+11:05
+V: air-conditioner
+11:06
+V: blankets
+11:07
+M: they doesn't allow you > they DON'T allow you
+11:12
+E: she didn't make an effort
+
+m:twice occasions>two occasions
+10:11
+v:average
+10:14
+m:care with you>care about you
+
+
+---
 
 how is a bed and breakfast different from a hotel?
 12:05

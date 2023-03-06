@@ -1,6 +1,16 @@
-# Caderas y flexibilidad
+#  Vinyasa Flow | Piernas y Apertura de Caderas
 
-* cuclillas
+[https://www.youtube.com/watch?v=134Dtv1ehqw](https://www.youtube.com/watch?v=134Dtv1ehqw)
+
+* Malasana, cuclillas, manos delante del pecho, alarga la espalda
+
+![](caderas-flexibilidad/001.png)
+
+Dos pasos hacía atrás: plancha
+
+Sin mover los pies, ombligo dentro, redondea la espalda, perro boca abajo.
+
+
 * manos al suelo
 * plancha
 * perro boca abajo
